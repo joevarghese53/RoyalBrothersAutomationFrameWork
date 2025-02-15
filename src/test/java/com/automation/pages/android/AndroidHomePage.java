@@ -31,6 +31,9 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @FindBy(xpath = "//android.widget.TextView[@text=\"SKIP\"]")
     WebElement skipBtn;
 
+    @FindBy(xpath = "//android.view.View[@content-desc=\"MENU\"]")
+    WebElement menuIcon;
+
     String dateXpath="//android.widget.TextView[@text=\"%s\"]";
     String timeXpath="//android.widget.TextView[@text=\"%s\"]";
     String locationXpath="//android.view.ViewGroup[@content-desc=\"%s\"]/android.view.ViewGroup/android.view.ViewGroup";
@@ -94,5 +97,10 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public void clickSearch() {
         searchBtn.click();
+    }
+
+    @Override
+    public void clickOnMenuIcon() {
+        menuIcon.click();
     }
 }

@@ -18,4 +18,12 @@ public class LoginSteps extends BaseSteps {
     public void userEntersTheMobileNumberAndClicksGetOtp(String number) {
         loginPage.enterNumber(number);
     }
+
+    @Then("verify error message is displayed")
+    public void verifyErrorMessageIsDisplayed() {
+    }
+
+    @When("user clicks on logout btn")
+    public void userClicksOnLogoutBtn() {
+    }
 }

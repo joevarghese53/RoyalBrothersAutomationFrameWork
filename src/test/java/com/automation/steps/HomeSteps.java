@@ -39,7 +39,9 @@ public class HomeSteps extends BaseSteps {
         homePage.clickSearch();
     }
 
-
-
+    @When("user navigates to menu page")
+    public void userNavigatesToMenuPage() {
+        homePage.clickOnMenuIcon();
+    }
 
 }

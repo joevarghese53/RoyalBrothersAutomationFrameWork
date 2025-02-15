@@ -11,4 +11,6 @@ public interface HomePage {
     void enterDateAndTime(String pDate, String pTime, String dDate, String dTime);
 
     void clickSearch();
+
+    void clickOnMenuIcon();
 }

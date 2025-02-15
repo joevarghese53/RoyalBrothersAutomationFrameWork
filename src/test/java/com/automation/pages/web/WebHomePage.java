@@ -28,4 +28,9 @@ public class WebHomePage extends BasePage implements HomePage {
     public void clickSearch() {
 
     }
+
+    @Override
+    public void clickOnMenuIcon() {
+
+    }
 }
