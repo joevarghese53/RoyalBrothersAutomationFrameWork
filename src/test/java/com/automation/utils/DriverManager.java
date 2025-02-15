@@ -1,6 +1,5 @@
 package com.automation.utils;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -31,12 +30,13 @@ public class DriverManager {
             capabilities.setCapability("appium:app", ConfigReader.getConfigValue("capabilities.appium.app"));
             capabilities.setCapability("appPackage", ConfigReader.getConfigValue("capabilities.appPackage"));
             capabilities.setCapability("appActivity", ConfigReader.getConfigValue("capabilities.appActivity"));
+            capabilities.setCapability("autoGrantPermissions", ConfigReader.getConfigValue("capabilities.autoGrantPermissions"));
             capabilities.setCapability("chromedriverExecutable", ConfigReader.getConfigValue("capabilities.chromedriverExecutable"));
             capabilities.setCapability("unlockType", ConfigReader.getConfigValue("capabilities.unlockType"));
             capabilities.setCapability("unlockKey", ConfigReader.getConfigValue("capabilities.unlockKey"));
             driver = new AndroidDriver(capabilities);
         }
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(90));
     }
 
     public static WebDriver getDriver(){

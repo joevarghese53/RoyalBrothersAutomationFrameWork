@@ -2,16 +2,19 @@ Feature: Verify an End To End scenario
 
   Background:
     Given user opens website or application
-    When user enters the location as "location"
+    When user enters the location as "booking.city"
     Then verify user is on the home page
 
   Scenario: Verify if user can book a bike
     When user enters pickUp and dropOff date and time as "pickUp.date", "pickUp.time","dropOff.date","dropOff.time"
     And clicks the search button
-    Then verify the user is on the rental bike page
+    Then verify the user is on the rental bikes page
     When user clicks the pickup location of the first available bike
     And selects the first available location
     And click book now
-    Then verify get otp login page is displayed
-    When user does login with phone number "phone.number"
-    Then Verify the summary page is displayed
+    Then verify user is on login page
+    When user enters the mobile number "phone.number" and clicks get otp
+    Then verify the otp page is displayed
+    When user enters the otp and clicks submit
+    Then verify the summary page is displayed
+    And verify the details displayed

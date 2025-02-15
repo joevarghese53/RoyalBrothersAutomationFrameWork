@@ -11,8 +11,8 @@ public class Hooks {
 
     @Before
     public void setUp() {
-        DriverManager.createDriver();
         ConfigReader.initConfig();
+        DriverManager.createDriver();
     }
 
     @After
