@@ -3,16 +3,16 @@ package com.automation.pages.web;
 import com.automation.pages.common.BasePage;
 import com.automation.pages.ui.HomePage;
 import com.automation.utils.ConfigReader;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class WebHomePage extends BasePage implements HomePage {
 
-    @FindBy(xpath = "//a[contains(@class,\"current-city\")]")
-    WebElement locationBtn;
+    @FindBy(id = "autocomplete-input")
+    WebElement locationSearchField;
 
-    @FindBy(xpath = "//a[contains(@class,\"current-city\")]/span")
-    WebElement location;
+    String locationXpath="//p[text()=' %s']";
 
     @Override
     public void openApplication() {
@@ -21,7 +21,9 @@ public class WebHomePage extends BasePage implements HomePage {
 
     @Override
     public void enterLocation(String loc) {
-
+        locationSearchField.sendKeys(ConfigReader.getConfigValue(loc));
+        WebElement location=driver.findElement(By.xpath(String.format(locationXpath,ConfigReader.getConfigValue(loc).toUpperCase())));
+        location.click();
     }
 
     @Override
@@ -46,11 +48,11 @@ public class WebHomePage extends BasePage implements HomePage {
 
     @Override
     public void clickOnLocationButton() {
-        locationBtn.click();
+
     }
 
     @Override
     public boolean verifyUpdatedLocation() {
-        return location.getText().toUpperCase().equals(ConfigReader.getConfigValue("booking.updatedCity"));
+        return false;
     }
 }

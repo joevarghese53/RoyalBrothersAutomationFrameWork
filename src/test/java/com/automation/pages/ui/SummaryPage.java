@@ -4,5 +4,5 @@ public interface SummaryPage {
 
     boolean isSummaryPageDisplayed();
 
-    void verifyDetails();
+    boolean verifyDetails();
 }
