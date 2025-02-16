@@ -13,4 +13,8 @@ public interface HomePage {
     void clickSearch();
 
     void clickOnMenuIcon();
+
+    void clickOnLocationButton();
+
+    boolean verifyUpdatedLocation();
 }

@@ -38,7 +38,7 @@ Feature: Validate user authentication functionality
     When user enters the otp and clicks submit
     Then verify user is on the home page
     And verify username is displayed in profile section
-    When user clicks on logout btn
+    When user clicks on logout button
     Then verify user is logged out
 
 

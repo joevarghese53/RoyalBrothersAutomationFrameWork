@@ -44,4 +44,13 @@ public class HomeSteps extends BaseSteps {
         homePage.clickOnMenuIcon();
     }
 
+    @When("user selects location button")
+    public void userSelectsLocationButton() {
+        homePage.clickOnLocationButton();
+    }
+
+    @Then("verify location is updated correctly")
+    public void verifyLocationIsUpdatedCorrectly() {
+        Assert.assertTrue(homePage.verifyUpdatedLocation());
+    }
 }
