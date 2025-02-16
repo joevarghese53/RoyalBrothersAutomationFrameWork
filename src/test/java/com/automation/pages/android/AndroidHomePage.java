@@ -38,7 +38,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public void openApplication(){
         skipBtn.click();
-//        skipBtn.click();
+        skipBtn.click();
     }
 
     @Override
@@ -46,7 +46,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
         locationSearchField.sendKeys(ConfigReader.getConfigValue(loc));
         WebElement location=driver.findElement(By.xpath(String.format(locationXpath,ConfigReader.getConfigValue(loc).toUpperCase())));
         location.click();
-//        location.click();
+        location.click();
     }
 
     @Override
@@ -57,7 +57,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public void enterDateAndTime(String pDate, String pTime, String dDate, String dTime) {
         pickupDateElement.click();
-//        pickupDateElement.click();
+        pickupDateElement.click();
 
         setDateAndTime(pDate,pTime);
         setDateAndTime(dDate,dTime);

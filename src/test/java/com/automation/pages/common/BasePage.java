@@ -33,7 +33,7 @@ public class BasePage {
         } catch (Exception e){
             return false;
         } finally {
-            setImplicitWait(20);
+            setImplicitWait(60);
         }
     }
 
@@ -83,6 +83,11 @@ public class BasePage {
         ((AndroidDriver) driver).perform(Collections.singletonList(sequence));
     }
 
+    public void scroll(){
+        int width=driver.manage().window().getSize().getWidth();
+        int height=driver.manage().window().getSize().getHeight();
+        scroll(width/2,height/2,width,0);
+    }
     public void pause(int sec) {
         Actions actions = new Actions(driver);
         actions.pause(Duration.ofSeconds(sec)).build().perform();
