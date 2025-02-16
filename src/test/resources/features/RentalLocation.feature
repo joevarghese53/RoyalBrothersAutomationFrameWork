@@ -12,5 +12,5 @@ Feature: Verify rental location selection feature
 
     Examples:
       | booking.city |
-      | AGRA         |
-      | BANGALORE    |
+      | Agra         |
+      | Bangalore    |

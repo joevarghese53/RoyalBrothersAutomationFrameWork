@@ -50,13 +50,15 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public void enterLocation(String loc){
         if (loc.equals("booking.city")) {
+            System.out.println("triii");
             locationSearchField.sendKeys(ConfigReader.getConfigValue(loc));
-            WebElement location = driver.findElement(By.xpath(String.format(locationXpath, ConfigReader.getConfigValue(loc))));
+            WebElement location = driver.findElement(By.xpath(String.format(locationXpath, ConfigReader.getConfigValue(loc).toUpperCase())));
             location.click();
 //            location.click();
         }else {
+            System.out.println("niceee");
             locationSearchField.sendKeys(loc);
-            WebElement location = driver.findElement(By.xpath(String.format(locationXpath, loc)));
+            WebElement location = driver.findElement(By.xpath(String.format(locationXpath, loc.toUpperCase())));
             location.click();
 //            location.click();
             ConfigReader.setConfigValue("booking.updatedCity", loc);
@@ -122,6 +124,6 @@ public class AndroidHomePage extends BasePage implements HomePage {
 
     @Override
     public boolean verifyUpdatedLocation() {
-        return locationBtn.getText().toUpperCase().equals(ConfigReader.getConfigValue("booking.updatedCity"));
+        return locationBtn.getText().toUpperCase().equalsIgnoreCase(ConfigReader.getConfigValue("booking.updatedCity"));
     }
 }

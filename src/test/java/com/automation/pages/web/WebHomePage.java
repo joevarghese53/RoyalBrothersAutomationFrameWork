@@ -14,6 +14,12 @@ public class WebHomePage extends BasePage implements HomePage {
 
     String locationXpath="//p[text()=' %s']";
 
+    @FindBy(xpath = "//a[contains(@class,\"current-city\")]")
+    WebElement locationBtn;
+
+    @FindBy(xpath = "//a[contains(@class,\"current-city\")]/span")
+    WebElement location;
+
     @Override
     public void openApplication() {
         driver.get("https://www.royalbrothers.com");
@@ -48,11 +54,11 @@ public class WebHomePage extends BasePage implements HomePage {
 
     @Override
     public void clickOnLocationButton() {
-
+        locationBtn.click();
     }
 
     @Override
     public boolean verifyUpdatedLocation() {
-        return false;
+        return location.getText().toUpperCase().equals(ConfigReader.getConfigValue("booking.updatedCity"));
     }
 }
