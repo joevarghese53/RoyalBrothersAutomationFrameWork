@@ -12,6 +12,9 @@ public class WebHomePage extends BasePage implements HomePage {
     @FindBy(id = "autocomplete-input")
     WebElement locationSearchField;
 
+    @FindBy(id = "pickup-date-desk")
+    WebElement dateElt;
+
     String locationXpath="//p[text()=' %s']";
 
     @FindBy(xpath = "//a[contains(@class,\"current-city\")]")
@@ -28,13 +31,13 @@ public class WebHomePage extends BasePage implements HomePage {
     @Override
     public void enterLocation(String loc) {
         locationSearchField.sendKeys(ConfigReader.getConfigValue(loc));
-        WebElement location=driver.findElement(By.xpath(String.format(locationXpath,ConfigReader.getConfigValue(loc).toUpperCase())));
+        WebElement location=driver.findElement(By.xpath(String.format(locationXpath,ConfigReader.getConfigValue(loc))));
         location.click();
     }
 
     @Override
     public boolean isHomePageDisplayed() {
-        return false;
+        return isDisplayed(dateElt);
     }
 
     @Override

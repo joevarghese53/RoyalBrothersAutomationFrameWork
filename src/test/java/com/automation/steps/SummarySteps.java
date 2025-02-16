@@ -13,6 +13,6 @@ public class SummarySteps extends BaseSteps {
 
     @And("verify the details displayed")
     public void verifyTheDetailsDisplayed() {
-        summaryPage.verifyDetails();
+        Assert.assertTrue(summaryPage.verifyDetails());
     }
 }
