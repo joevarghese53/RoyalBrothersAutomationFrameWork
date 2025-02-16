@@ -34,6 +34,9 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @FindBy(xpath = "//android.view.View[@content-desc=\"MENU\"]")
     WebElement menuIcon;
 
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Book Now, Ride Anywhere\"]/../../preceding-sibling::android.view.ViewGroup//android.widget.TextView")
+    WebElement locationBtn;
+
     String dateXpath="//android.widget.TextView[@text=\"%s\"]";
     String timeXpath="//android.widget.TextView[@text=\"%s\"]";
     String locationXpath="//android.view.ViewGroup[@content-desc=\"%s\"]/android.view.ViewGroup/android.view.ViewGroup";
@@ -41,15 +44,25 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public void openApplication(){
         skipBtn.click();
-        skipBtn.click();
+//        skipBtn.click();
     }
 
     @Override
     public void enterLocation(String loc){
-        locationSearchField.sendKeys(ConfigReader.getConfigValue(loc));
-        WebElement location=driver.findElement(By.xpath(String.format(locationXpath,ConfigReader.getConfigValue(loc).toUpperCase())));
-        location.click();
-        location.click();
+        if (loc.equals("booking.city")) {
+            System.out.println("triii");
+            locationSearchField.sendKeys(ConfigReader.getConfigValue(loc));
+            WebElement location = driver.findElement(By.xpath(String.format(locationXpath, ConfigReader.getConfigValue(loc).toUpperCase())));
+            location.click();
+//            location.click();
+        }else {
+            System.out.println("niceee");
+            locationSearchField.sendKeys(loc);
+            WebElement location = driver.findElement(By.xpath(String.format(locationXpath, loc.toUpperCase())));
+            location.click();
+//            location.click();
+            ConfigReader.setConfigValue("booking.updatedCity", loc);
+        }
     }
 
     @Override
@@ -60,7 +73,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public void enterDateAndTime(String pDate, String pTime, String dDate, String dTime) {
         pickupDateElement.click();
-        pickupDateElement.click();
+//        pickupDateElement.click();
 
         setDateAndTime(pDate,pTime);
         setDateAndTime(dDate,dTime);
@@ -102,5 +115,15 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public void clickOnMenuIcon() {
         menuIcon.click();
+    }
+
+    @Override
+    public void clickOnLocationButton() {
+        locationBtn.click();
+    }
+
+    @Override
+    public boolean verifyUpdatedLocation() {
+        return locationBtn.getText().toUpperCase().equalsIgnoreCase(ConfigReader.getConfigValue("booking.updatedCity"));
     }
 }
