@@ -21,6 +21,6 @@ public class Hooks {
             Allure.addAttachment("screenshot", DriverManager.takeScreenshotAsBase64());
             scenario.attach(DriverManager.takeScreenshotAsBase64(), "image/png", "screenshot");
         }
-        DriverManager.getDriver().quit();
+//        DriverManager.getDriver().quit();
     }
 }

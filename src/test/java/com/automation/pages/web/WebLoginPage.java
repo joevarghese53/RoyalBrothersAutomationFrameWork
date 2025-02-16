@@ -2,11 +2,31 @@ package com.automation.pages.web;
 
 import com.automation.pages.common.BasePage;
 import com.automation.pages.ui.LoginPage;
+import com.automation.utils.ConfigReader;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebLoginPage extends BasePage implements LoginPage {
+
+    @FindBy(xpath = "//ul[contains(@class,'login_signup_tabs')]//a[contains(text(),'Login')]")
+    WebElement loginTab;
+
+    @FindBy(xpath = "//div[@id='login']//input[@id='phone_no']")
+    WebElement phoneNumberBox;
+
+    @FindBy(xpath = "//button[text()='Login with OTP']")
+    WebElement otpLoginBtn;
+
+    @FindBy(xpath = "//div[@id='login']//iframe")
+    WebElement iframe;
+
+    Actions actions=new Actions(driver);
     @Override
     public boolean isLoginPageDisplayed() {
-        return false;
+        return isDisplayed(loginTab);
     }
 
     @Override
@@ -16,6 +36,21 @@ public class WebLoginPage extends BasePage implements LoginPage {
 
     @Override
     public void enterNumber(String number) {
+        loginTab.click();
+        phoneNumberBox.sendKeys(ConfigReader.getConfigValue(number));
 
+
+        driver.switchTo().frame(iframe);
+
+        WebElement captcha= driver.findElement(By.xpath("//div[@class='recaptcha-checkbox-border']"));
+        captcha.click();
+
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='login']//iframe")));
+        driver.switchTo().defaultContent();
+
+        waitUntilVisible(otpLoginBtn);
+
+        actions.moveToElement(otpLoginBtn).build().perform();
+        otpLoginBtn.click();
     }
 }

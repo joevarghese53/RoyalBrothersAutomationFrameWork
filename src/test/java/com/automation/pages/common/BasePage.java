@@ -18,7 +18,7 @@ import java.util.Collections;
 public class BasePage {
 
     protected static WebDriver driver;
-    WebDriverWait wait;
+     protected WebDriverWait wait;
 
     public BasePage() {
         driver = DriverManager.getDriver();

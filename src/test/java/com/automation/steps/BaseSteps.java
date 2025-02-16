@@ -2,7 +2,7 @@ package com.automation.steps;
 
 import com.automation.pages.android.*;
 import com.automation.pages.ui.*;
-import com.automation.pages.web.WebHomePage;
+import com.automation.pages.web.*;
 
 public class BaseSteps {
 
@@ -16,6 +16,10 @@ public class BaseSteps {
     public BaseSteps() {
         if (System.getProperty("platform").equals("web")) {
             homePage = new WebHomePage();
+            loginPage = new WebLoginPage();
+            otpSubmissionPage = new WebOtpSubmissionPage();
+            rentalBikesPage = new WebRentalBikesPage();
+            summaryPage = new WebSummaryPage();
         } else {
             homePage = new AndroidHomePage();
             loginPage = new AndroidLoginPage();

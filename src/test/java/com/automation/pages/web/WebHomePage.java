@@ -4,7 +4,9 @@ import com.automation.pages.common.BasePage;
 import com.automation.pages.ui.HomePage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class WebHomePage extends BasePage implements HomePage {
@@ -13,7 +15,7 @@ public class WebHomePage extends BasePage implements HomePage {
     WebElement locationSearchField;
 
     @FindBy(id = "pickup-date-desk")
-    WebElement dateElt;
+    WebElement pickupDateElement;
 
     String locationXpath="//p[text()=' %s']";
 
@@ -22,6 +24,23 @@ public class WebHomePage extends BasePage implements HomePage {
 
     @FindBy(xpath = "//a[contains(@class,\"current-city\")]/span")
     WebElement location;
+
+    @FindBy(xpath = "//div[@aria-hidden='false']//div[@class='picker__month']")
+    WebElement pickUpMonth;
+
+    @FindBy(xpath = "//div[@aria-hidden='false']//div[@class='picker__year']")
+    WebElement pickUpYear;
+
+    @FindBy(xpath = "//div[@aria-hidden='false']//div[@class='picker__nav--next']")
+    WebElement nextBtn;
+
+    @FindBy(xpath = "//div[contains(@class,'booking-card-tablet')]//button[text()='Search']")
+    WebElement searchBtn;
+
+    String dateXpath="//div[@aria-hidden='false']//td/div[text()='%s']";
+    String timeXpath="//div[@aria-hidden='false']//li[text()='%s']";
+
+    Actions actions = new Actions(driver);
 
     @Override
     public void openApplication() {
@@ -37,17 +56,44 @@ public class WebHomePage extends BasePage implements HomePage {
 
     @Override
     public boolean isHomePageDisplayed() {
-        return isDisplayed(dateElt);
+        return isDisplayed(pickupDateElement);
     }
 
     @Override
     public void enterDateAndTime(String pDate, String pTime, String dDate, String dTime) {
 
+        actions.moveToElement(searchBtn).perform();
+        pickupDateElement.click();
+
+        setDateAndTime(pDate, pTime);
+        pause(1);
+        setDateAndTime(dDate, dTime);
+    }
+
+    public void setDateAndTime(String date,String time){
+        while(!pickUpMonth.getText().contains(ConfigReader.getConfigValue(date).split(" ")[1].trim()) || !pickUpYear.getText().trim().equals(ConfigReader.getConfigValue(date).split(" ")[2].trim())){
+            nextBtn.click();
+        }
+
+        WebElement dateElt=driver.findElement(By.xpath(String.format(dateXpath,ConfigReader.getConfigValue(date).split(" ")[0])));
+        dateElt.click();
+
+        String timeConfig=null;
+        if(ConfigReader.getConfigValue(time).charAt(0)=='0') {
+            timeConfig =ConfigReader.getConfigValue(time).replaceFirst("0","");
+        }
+        else {
+            timeConfig =ConfigReader.getConfigValue(time);
+        }
+
+
+        actions.moveToElement(driver.findElement(By.xpath(String.format(timeXpath,timeConfig)))).perform();
+        driver.findElement(By.xpath(String.format(timeXpath,timeConfig))).click();
     }
 
     @Override
     public void clickSearch() {
-
+        searchBtn.click();
     }
 
     @Override
