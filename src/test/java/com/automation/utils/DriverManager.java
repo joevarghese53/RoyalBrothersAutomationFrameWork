@@ -31,7 +31,6 @@ public class DriverManager {
             capabilities.setCapability("appPackage", ConfigReader.getConfigValue("capabilities.appPackage"));
             capabilities.setCapability("appActivity", ConfigReader.getConfigValue("capabilities.appActivity"));
             capabilities.setCapability("autoGrantPermissions", ConfigReader.getConfigValue("capabilities.autoGrantPermissions"));
-            capabilities.setCapability("chromedriverExecutable", ConfigReader.getConfigValue("capabilities.chromedriverExecutable"));
             capabilities.setCapability("unlockType", ConfigReader.getConfigValue("capabilities.unlockType"));
             capabilities.setCapability("unlockKey", ConfigReader.getConfigValue("capabilities.unlockKey"));
             driver = new AndroidDriver(capabilities);

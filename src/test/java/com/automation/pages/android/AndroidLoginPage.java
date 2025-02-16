@@ -30,7 +30,11 @@ public class AndroidLoginPage extends BasePage implements LoginPage {
 
     @Override
     public void enterNumber(String number) {
-        numberField.sendKeys(ConfigReader.getConfigValue(number));
+        if (number.equals("phone.number")){
+            numberField.sendKeys(ConfigReader.getConfigValue(number));
+        }else {
+            numberField.sendKeys(number);
+        }
         getOtpBtn.click();
     }
 }

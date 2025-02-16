@@ -5,6 +5,7 @@ Feature: Verify an End To End scenario
     When user enters the location as "booking.city"
     Then verify user is on the home page
 
+  @web @android
   Scenario: Verify if user can book a bike
     When user enters pickUp and dropOff date and time as "pickUp.date", "pickUp.time","dropOff.date","dropOff.time"
     And clicks the search button
