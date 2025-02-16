@@ -2,6 +2,7 @@ package com.automation.pages.android;
 
 import com.automation.pages.common.BasePage;
 import com.automation.pages.ui.RentalBikesPage;
+import com.automation.utils.ConfigReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -19,10 +20,18 @@ public class AndroidRentalBikesPage extends BasePage implements RentalBikesPage 
     @FindBy(xpath = "//android.widget.TextView[@text=\"BOOK NOW\"]")
     WebElement bookNowBtn;
 
+    @FindBy(xpath = "//android.widget.TextView[@text=\"km limit\"]/preceding-sibling::android.widget.TextView")
+    WebElement bikeName;
+
+    @FindBy(xpath = "//android.widget.TextView[@text=\"km limit\"]/following-sibling::android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]")
+    WebElement bikePrice;
+
     @Override
     public void selectBike() {
         bikeContainer.click();
-//        bikeContainer.click();
+        bikeContainer.click();
+        ConfigReader.setConfigValue("bike.name",bikeName.getText());
+        ConfigReader.setConfigValue("bike.price",bikePrice.getText());
     }
 
     @Override

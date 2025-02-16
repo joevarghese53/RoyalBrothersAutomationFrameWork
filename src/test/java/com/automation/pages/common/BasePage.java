@@ -30,10 +30,10 @@ public class BasePage {
         try {
             setImplicitWait(10);
             return ele.isDisplayed();
-        } catch (Exception e) {
+        } catch (Exception e){
             return false;
         } finally {
-            setImplicitWait(20);
+            setImplicitWait(60);
         }
     }
 

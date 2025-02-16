@@ -12,7 +12,7 @@ public class WebHomePage extends BasePage implements HomePage {
     @FindBy(id = "autocomplete-input")
     WebElement locationSearchField;
 
-    String locationXpath = "//p[text()=' %s']";
+    String locationXpath="//p[text()=' %s']";
 
     @Override
     public void openApplication() {
@@ -22,7 +22,7 @@ public class WebHomePage extends BasePage implements HomePage {
     @Override
     public void enterLocation(String loc) {
         locationSearchField.sendKeys(ConfigReader.getConfigValue(loc));
-        WebElement location = driver.findElement(By.xpath(String.format(locationXpath, ConfigReader.getConfigValue(loc).toUpperCase())));
+        WebElement location=driver.findElement(By.xpath(String.format(locationXpath,ConfigReader.getConfigValue(loc).toUpperCase())));
         location.click();
     }
 
@@ -53,6 +53,6 @@ public class WebHomePage extends BasePage implements HomePage {
 
     @Override
     public boolean verifyUpdatedLocation() {
-
+        return false;
     }
 }

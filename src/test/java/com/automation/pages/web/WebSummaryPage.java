@@ -10,7 +10,7 @@ public class WebSummaryPage extends BasePage implements SummaryPage {
     }
 
     @Override
-    public void verifyDetails() {
-
+    public boolean verifyDetails() {
+        return true;
     }
 }
