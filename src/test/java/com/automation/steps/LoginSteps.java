@@ -21,9 +21,7 @@ public class LoginSteps extends BaseSteps {
 
     @Then("verify error message is displayed")
     public void verifyErrorMessageIsDisplayed() {
+        loginPage.isErrorDisplayed();
     }
 
-    @When("user clicks on logout btn")
-    public void userClicksOnLogoutBtn() {
-    }
 }
