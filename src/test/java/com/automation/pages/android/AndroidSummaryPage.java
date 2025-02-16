@@ -3,6 +3,7 @@ package com.automation.pages.android;
 import com.automation.pages.common.BasePage;
 import com.automation.pages.ui.SummaryPage;
 import com.automation.utils.ConfigReader;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -17,8 +18,7 @@ public class AndroidSummaryPage extends BasePage implements SummaryPage {
     @FindBy(xpath = "//android.widget.TextView[@text=\"Booking details\"]/preceding-sibling::android.widget.TextView")
     WebElement bikeName;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"Vehicle Rental Charges\"]/following-sibling::android.widget.TextView")
-    WebElement bikePrice;
+    String bikePriceXpath="//android.widget.TextView[@text=\"Vehicle Rental Charges\"]/following-sibling::android.widget.TextView";
 
     @Override
     public boolean isSummaryPageDisplayed() {
@@ -28,14 +28,16 @@ public class AndroidSummaryPage extends BasePage implements SummaryPage {
 
     @Override
     public boolean verifyDetails() {
+        String bike=bikeName.getText();
+
         summaryText.click();
-        setImplicitWait(5);
-        while(!isDisplayed(bikePrice)){
-            System.out.println(12345);
+        while(!isDisplayed(bikePriceXpath)){
             scroll();
         }
-        setImplicitWait(60);
-        return ConfigReader.getConfigValue("bike.name").equals(bikeName.getText())
+
+        WebElement bikePrice= driver.findElement(By.xpath("//android.widget.TextView[@text=\"Vehicle Rental Charges\"]/following-sibling::android.widget.TextView"));
+
+        return ConfigReader.getConfigValue("bike.name").equals(bike)
                 && ConfigReader.getConfigValue("bike.price").equals(bikePrice.getText());
     }
 }
