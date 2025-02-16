@@ -83,6 +83,12 @@ public class BasePage {
         ((AndroidDriver) driver).perform(Collections.singletonList(sequence));
     }
 
+    public void scroll(){
+        int width=driver.manage().window().getSize().getWidth();
+        int height=driver.manage().window().getSize().getHeight();
+        scroll(width/2,height/2,width,0);
+    }
+
     public void scroll(WebElement topElement, WebElement bottomElement) {
         int width = bottomElement.getSize().getWidth();
         int height = bottomElement.getSize().getHeight();
