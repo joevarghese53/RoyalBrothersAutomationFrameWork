@@ -13,4 +13,6 @@ public interface RentalBikesPage {
     void clickOnFilterAndSortBtn();
 
     void applyFilter(String filter, String option);
+
+    boolean verifyFilterApplied(String filter, String option);
 }

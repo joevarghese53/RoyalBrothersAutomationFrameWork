@@ -15,8 +15,8 @@ public class AndroidRentalBikesPage extends BasePage implements RentalBikesPage 
     @FindBy(xpath = "//android.widget.TextView[@text=\"Select Pickup Location\"]")
     WebElement pickupLocElt;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"SELECT PICKUP LOCATION\"]/following-sibling::android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]")
-    WebElement pickupLocation;
+    @FindBy(xpath = "//android.widget.TextView[@text=\"SELECT PICKUP LOCATION\"]/following-sibling::android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView[1]")
+    WebElement firstPickupLocation;
 
     @FindBy(xpath = "//android.widget.TextView[@text=\"BOOK NOW\"]")
     WebElement bookNowBtn;
@@ -33,9 +33,13 @@ public class AndroidRentalBikesPage extends BasePage implements RentalBikesPage 
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"APPLY\"]/android.view.ViewGroup")
     WebElement applyBtn;
 
+    @FindBy(xpath = "(//android.widget.HorizontalScrollView//android.widget.TextView)[1]")
+    WebElement categoryFilter;
+
     String filterXpath = "//android.widget.TextView[@text='%s']";
 
-    String optionXpath = "//android.widget.TextView[@text='%s']/../preceding-sibling::android.view.ViewGroup/android.view.ViewGroup";
+    String optionXpath = "//android.widget.TextView[@text='%s']/preceding-sibling::android.view.ViewGroup";
+    String modelOptionXpath = "//android.widget.TextView[@text='%s']/../preceding-sibling::android.view.ViewGroup";
 
     @Override
     public void selectBike() {
@@ -49,7 +53,7 @@ public class AndroidRentalBikesPage extends BasePage implements RentalBikesPage 
     public void selectPickupLoc() {
         pickupLocElt.click();
         pause(3);
-        pickupLocation.click();
+        firstPickupLocation.click();
     }
 
     @Override
@@ -70,8 +74,34 @@ public class AndroidRentalBikesPage extends BasePage implements RentalBikesPage 
     @Override
     public void applyFilter(String filter, String option) {
         driver.findElement(By.xpath(String.format(filterXpath, filter))).click();
-        driver.findElement(By.xpath(String.format(optionXpath, option))).click();
+        System.out.println(String.format(optionXpath, option));
+        if (filter.equalsIgnoreCase("Model")) {
+            driver.findElement(By.xpath(String.format(modelOptionXpath, option))).click();
+        } else {
+            driver.findElement(By.xpath(String.format(optionXpath, option))).click();
+        }
         applyBtn.click();
+    }
+
+    @Override
+    public boolean verifyFilterApplied(String filter, String option) {
+        if (filter.equalsIgnoreCase("Model")) {
+            return bikeName.getText().contains(option);
+        } else if (filter.equalsIgnoreCase("Location")) {
+            WebElement topElement = driver.findElement(By.xpath("//android.widget.TextView[contains(@text,\"All prices are\")]"));
+            WebElement bottomElement = driver.findElement(By.xpath("//android.widget.TextView[@text=\"km limit\"]"));
+            scroll(topElement, bottomElement);
+            pickupLocElt.click();
+            return firstPickupLocation.getText().contains(option);
+        } else if (filter.equalsIgnoreCase("Category")) {
+            WebElement topElement = driver.findElement(By.xpath("//android.widget.TextView[contains(@text,\"All prices are\")]"));
+            WebElement bottomElement = driver.findElement(By.xpath("//android.widget.TextView[@text=\"km limit\"]"));
+            scroll(topElement, bottomElement);
+            return categoryFilter.getText().equalsIgnoreCase(option);
+        } else {
+            System.out.println("Invalid Filter");
+            return false;
+        }
     }
 
 }

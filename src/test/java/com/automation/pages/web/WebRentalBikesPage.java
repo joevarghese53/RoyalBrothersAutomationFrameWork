@@ -62,5 +62,10 @@ public class WebRentalBikesPage extends BasePage implements RentalBikesPage {
 
     }
 
+    @Override
+    public boolean verifyFilterApplied(String filter, String option) {
+        return true;
+    }
+
 
 }

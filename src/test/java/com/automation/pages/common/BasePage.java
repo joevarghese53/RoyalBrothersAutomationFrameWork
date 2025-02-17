@@ -18,7 +18,7 @@ import java.util.Collections;
 public class BasePage {
 
     protected static WebDriver driver;
-     protected WebDriverWait wait;
+    protected WebDriverWait wait;
 
     public BasePage() {
         driver = DriverManager.getDriver();
@@ -30,7 +30,7 @@ public class BasePage {
         try {
             setImplicitWait(10);
             return ele.isDisplayed();
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
         } finally {
             setImplicitWait(60);
@@ -86,7 +86,6 @@ public class BasePage {
 
     public void scroll(int startX, int startY, int endX, int endY) {
 
-        System.out.println("inside scroll");
         PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
 
         Sequence sequence = new Sequence(finger1, 1)
@@ -99,10 +98,10 @@ public class BasePage {
         pause(1);
     }
 
-    public void scroll(){
-        int width=driver.manage().window().getSize().getWidth();
-        int height=driver.manage().window().getSize().getHeight();
-        scroll(width/2,height/2+600,width,0);
+    public void scroll() {
+        int width = driver.manage().window().getSize().getWidth();
+        int height = driver.manage().window().getSize().getHeight();
+        scroll(width / 2, height / 2 + 600, width, 0);
     }
 
     public void scroll(WebElement topElement, WebElement bottomElement) {

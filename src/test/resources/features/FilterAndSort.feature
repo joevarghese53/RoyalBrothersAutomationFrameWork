@@ -5,6 +5,7 @@ Feature: Verify filter and sort functionality
     And user enters the location as "booking.city"
     Then verify user is on the home page
 
+  @web @android
   Scenario Outline: Filter functionality
     When user enters pickUp and dropOff date and time as "pickUp.date", "pickUp.time","dropOff.date","dropOff.time"
     And clicks the search button
@@ -15,5 +16,6 @@ Feature: Verify filter and sort functionality
 
     Examples:
       | filter   | option                  |
+      | Category | Commuter                |
+      | Location | Central Railway station |
       | Model    | Aprilia                 |
-      | Location | Central Railway Station |

@@ -50,13 +50,11 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public void enterLocation(String loc){
         if (loc.equals("booking.city")) {
-            System.out.println("triii");
             locationSearchField.sendKeys(ConfigReader.getConfigValue(loc));
             WebElement location = driver.findElement(By.xpath(String.format(locationXpath, ConfigReader.getConfigValue(loc).toUpperCase())));
             location.click();
 //            location.click();
         }else {
-            System.out.println("niceee");
             locationSearchField.sendKeys(loc);
             WebElement location = driver.findElement(By.xpath(String.format(locationXpath, loc.toUpperCase())));
             location.click();
@@ -73,7 +71,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public void enterDateAndTime(String pDate, String pTime, String dDate, String dTime) {
         pickupDateElement.click();
-        pickupDateElement.click();
+//        pickupDateElement.click();
 
         setDateAndTime(pDate,pTime);
         setDateAndTime(dDate,dTime);
@@ -89,19 +87,6 @@ public class AndroidHomePage extends BasePage implements HomePage {
         dateElt.click();
 
         setImplicitWait(2);
-//        while(true){
-//            try {
-//                if (isDisplayed(driver.findElement(By.xpath(String.format(timeXpath, ConfigReader.getConfigValue(time))))))
-//                    break;
-//            } catch (Exception e) {
-//                WebElement timeTab = driver.findElement(By.xpath("//android.widget.ScrollView"));
-//                int x = timeTab.getLocation().getX();
-//                int y = timeTab.getLocation().getY();
-//                int width = timeTab.getSize().getWidth();
-//                int height = timeTab.getSize().getHeight();
-//                scroll(x + width / 2, y + height / 2, x + width / 2, y);
-//            }
-//        }
 
         while (!isDisplayed(timeXpath, ConfigReader.getConfigValue(time))) {
 
@@ -113,7 +98,6 @@ public class AndroidHomePage extends BasePage implements HomePage {
             int width = timeTab1.getSize().getWidth();
             int height = timeTab1.getSize().getHeight();
             scroll(x + width / 2, y1 + height / 2, x + width / 2, y2);
-
         }
 
         setImplicitWait(60);

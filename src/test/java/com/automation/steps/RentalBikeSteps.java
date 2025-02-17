@@ -41,6 +41,7 @@ public class RentalBikeSteps extends BaseSteps {
     }
 
     @Then("verify filter {string} is applied with {string}")
-    public void verifyFilterIsAppliedWith(String arg0, String arg1) {
+    public void verifyFilterIsAppliedWith(String filer, String option) {
+        Assert.assertTrue(rentalBikesPage.verifyFilterApplied(filer, option));
     }
 }
