@@ -24,11 +24,6 @@ public class HomeSteps extends BaseSteps {
         Assert.assertTrue(homePage.isHomePageDisplayed());
     }
 
-    @Then("verify user is on the homepage")
-    public void verifyUserIsOnTheHomepage() {
-        Assert.assertTrue(homePage.isHomePageDisplayed());
-    }
-
     @When("user enters pickUp and dropOff date and time as {string}, {string},{string},{string}")
     public void userEntersPickUpAndDropOffDateAndTimeAs(String pDate, String pTime, String dDate, String dTime) {
         homePage.enterDateAndTime(pDate, pTime, dDate, dTime);

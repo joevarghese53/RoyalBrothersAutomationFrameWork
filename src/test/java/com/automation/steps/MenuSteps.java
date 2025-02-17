@@ -13,12 +13,22 @@ public class MenuSteps extends BaseSteps{
 
     @Then("verify username is displayed in profile section")
     public void verifyUsernameIsDisplayedInProfileSection() {
-        Assert.assertTrue(menuPage.isUserNameDisplayed());
+        if (System.getProperty("platform").equals("mobile")) {
+            Assert.assertTrue(menuPage.isUserNameDisplayed());
+        }
+        else{
+            Assert.assertTrue(homePage.isUserNameDisplayed());
+        }
     }
 
     @And("user clicks on login button")
     public void UserClicksOnLoginButton() {
-        menuPage.clickOnLoginButton();
+        if (System.getProperty("platform").equals("mobile")) {
+            menuPage.clickOnLoginButton();
+        }
+        else{
+            homePage.clickOnLoginButton();
+        }
     }
 
     @When("user clicks on logout button")
