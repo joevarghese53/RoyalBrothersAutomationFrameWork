@@ -7,6 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class AndroidSummaryPage extends BasePage implements SummaryPage {
 
     @FindBy(xpath = "//android.widget.TextView[@text=\"ADD-ONS\"]/following-sibling::android.view.ViewGroup[2]//com.horcrux.svg.GroupView")
@@ -28,6 +31,7 @@ public class AndroidSummaryPage extends BasePage implements SummaryPage {
 
     @Override
     public boolean verifyDetails() {
+
         String bike=bikeName.getText();
 
         summaryText.click();

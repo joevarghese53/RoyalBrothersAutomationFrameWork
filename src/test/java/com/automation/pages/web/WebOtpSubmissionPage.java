@@ -20,7 +20,8 @@ public class WebOtpSubmissionPage extends BasePage implements OtpSubmissionPage 
 
     @Override
     public void clickSubmit() {
-        waitUntilVisible(lastOtpInput);
-        verifyBtn.click();
+//        waitUntilVisible(lastOtpInput);
+//        verifyBtn.click();
+        pause(15);
     }
 }
