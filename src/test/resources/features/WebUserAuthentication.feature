@@ -2,10 +2,10 @@ Feature: Validate user authentication functionality
 
   Background:
     Given user opens website or application
-    When user enters the location as "booking.city"
+    And user enters the location as "booking.city"
     Then verify user is on the home page
 
-  @android
+  @web
   Scenario: Successful login with valid credentials
     When user clicks on login button
     Then verify user is on login page

@@ -2,7 +2,7 @@ Feature: Verify an End To End scenario
 
   Background:
     Given user opens website or application
-    When user enters the location as "booking.city"
+    And user enters the location as "booking.city"
     Then verify user is on the home page
 
   @web @android

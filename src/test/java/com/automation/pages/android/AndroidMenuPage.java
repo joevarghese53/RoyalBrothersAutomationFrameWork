@@ -3,7 +3,6 @@ package com.automation.pages.android;
 import com.automation.pages.common.BasePage;
 import com.automation.pages.ui.MenuPage;
 import com.automation.utils.ConfigReader;
-import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

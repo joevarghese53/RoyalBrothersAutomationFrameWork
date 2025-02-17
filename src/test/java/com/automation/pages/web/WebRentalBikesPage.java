@@ -51,4 +51,16 @@ public class WebRentalBikesPage extends BasePage implements RentalBikesPage {
     public boolean isRentalBikesPageDisplayed() {
         return isDisplayed(applyFilterBtn);
     }
+
+    @Override
+    public void clickOnFilterAndSortBtn() {
+
+    }
+
+    @Override
+    public void applyFilter(String filter, String option) {
+
+    }
+
+
 }

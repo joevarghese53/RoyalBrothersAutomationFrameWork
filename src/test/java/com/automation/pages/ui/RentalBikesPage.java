@@ -9,4 +9,8 @@ public interface RentalBikesPage {
     void clickBookNow();
 
     boolean isRentalBikesPageDisplayed();
+
+    void clickOnFilterAndSortBtn();
+
+    void applyFilter(String filter, String option);
 }

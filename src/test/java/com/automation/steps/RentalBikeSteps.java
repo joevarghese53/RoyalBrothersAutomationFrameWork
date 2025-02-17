@@ -29,4 +29,18 @@ public class RentalBikeSteps extends BaseSteps {
     public void userClicksThePickupLocationOfTheFirstAvailableBike() {
         rentalBikesPage.selectBike();
     }
+
+    @When("user clicks on filter and sort button")
+    public void userClicksOnFilterAndSortButton() {
+        rentalBikesPage.clickOnFilterAndSortBtn();
+    }
+
+    @And("applies filter {string} with option {string}")
+    public void appliesFilterWithOption(String filter, String option) {
+        rentalBikesPage.applyFilter(filter, option);
+    }
+
+    @Then("verify filter {string} is applied with {string}")
+    public void verifyFilterIsAppliedWith(String arg0, String arg1) {
+    }
 }

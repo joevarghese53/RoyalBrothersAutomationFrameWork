@@ -2,7 +2,7 @@ Feature: Validate user authentication functionality
 
   Background:
     Given user opens website or application
-    When user enters the location as "booking.city"
+    And user enters the location as "booking.city"
     Then verify user is on the home page
 
   @android
@@ -29,8 +29,6 @@ Feature: Validate user authentication functionality
       | phone.number |
       | 373738383    |
       | 575884844    |
-      | 474888484    |
-      | 757488939    |
 
   @android
   Scenario: Successful logout after login

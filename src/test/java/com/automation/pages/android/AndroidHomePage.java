@@ -37,25 +37,25 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @FindBy(xpath = "//android.widget.TextView[@text=\"Book Now, Ride Anywhere\"]/../../preceding-sibling::android.view.ViewGroup//android.widget.TextView")
     WebElement locationBtn;
 
-    String dateXpath="//android.widget.TextView[@text=\"%s\"]";
-    String timeXpath="//android.widget.TextView[@text=\"%s\"]";
-    String locationXpath="//android.view.ViewGroup[@content-desc=\"%s\"]/android.view.ViewGroup/android.view.ViewGroup";
+    String dateXpath = "//android.widget.TextView[@text=\"%s\"]";
+    String timeXpath = "//android.widget.TextView[@text=\"%s\"]";
+    String locationXpath = "//android.view.ViewGroup[@content-desc=\"%s\"]/android.view.ViewGroup/android.view.ViewGroup";
 
     @Override
-    public void openApplication(){
+    public void openApplication() {
         skipBtn.click();
 //        skipBtn.click();
     }
 
     @Override
-    public void enterLocation(String loc){
+    public void enterLocation(String loc) {
         if (loc.equals("booking.city")) {
             System.out.println("triii");
             locationSearchField.sendKeys(ConfigReader.getConfigValue(loc));
             WebElement location = driver.findElement(By.xpath(String.format(locationXpath, ConfigReader.getConfigValue(loc).toUpperCase())));
             location.click();
 //            location.click();
-        }else {
+        } else {
             System.out.println("niceee");
             locationSearchField.sendKeys(loc);
             WebElement location = driver.findElement(By.xpath(String.format(locationXpath, loc.toUpperCase())));
@@ -66,7 +66,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
     }
 
     @Override
-    public boolean isHomePageDisplayed(){
+    public boolean isHomePageDisplayed() {
         return pickupDateElement.isDisplayed();
     }
 
@@ -75,25 +75,29 @@ public class AndroidHomePage extends BasePage implements HomePage {
         pickupDateElement.click();
 //        pickupDateElement.click();
 
-        setDateAndTime(pDate,pTime);
-        setDateAndTime(dDate,dTime);
+        setDateAndTime(pDate, pTime);
+        setDateAndTime(dDate, dTime);
     }
 
-    public void setDateAndTime(String date,String time){
+    public void setDateAndTime(String date, String time) {
 
-        while(!monthYear.get(0).getText().contains(ConfigReader.getConfigValue(date).split(" ")[1].trim()) || !monthYear.get(1).getText().trim().equals(ConfigReader.getConfigValue(date).split(" ")[2].trim())){
+        while (!monthYear.get(0).getText().contains(ConfigReader.getConfigValue(date).split(" ")[1].trim()) || !monthYear.get(1).getText().trim().equals(ConfigReader.getConfigValue(date).split(" ")[2].trim())) {
             nextBtn.click();
         }
 
-        WebElement dateElt=driver.findElement(By.xpath(String.format(dateXpath,ConfigReader.getConfigValue(date).split(" ")[0])));
+        WebElement dateElt = driver.findElement(By.xpath(String.format(dateXpath, ConfigReader.getConfigValue(date).split(" ")[0])));
         dateElt.click();
 
         setImplicitWait(2);
-        while(true){
+        while (true) {
             try {
-                if (isDisplayed(driver.findElement(By.xpath(String.format(timeXpath, ConfigReader.getConfigValue(time))))))
+                if (isDisplayed(driver.findElement(By.xpath(String.format(timeXpath, ConfigReader.getConfigValue(time)))))) {
+                    System.out.println("element found");
                     break;
+                }
             } catch (Exception e) {
+                System.out.println("Exception"+ e);
+                System.out.println("element not found scrolling");
                 WebElement timeTab = driver.findElement(By.xpath("//android.widget.ScrollView"));
                 int x = timeTab.getLocation().getX();
                 int y = timeTab.getLocation().getY();
@@ -104,7 +108,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
         }
 
         setImplicitWait(60);
-        driver.findElement(By.xpath(String.format(timeXpath,ConfigReader.getConfigValue(time)))).click();
+        driver.findElement(By.xpath(String.format(timeXpath, ConfigReader.getConfigValue(time)))).click();
     }
 
     @Override
