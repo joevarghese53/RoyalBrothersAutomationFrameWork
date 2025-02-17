@@ -12,6 +12,7 @@ Feature: Validate user authentication functionality
     When user enters the mobile number "phone.number" and clicks get otp
     Then verify the otp page is displayed
     When user enters the otp and clicks submit
+    And user enters the location as "booking.city"
     Then verify user is on the home page
     And verify username is displayed in profile section
 
@@ -24,8 +25,8 @@ Feature: Validate user authentication functionality
 
     Examples:
       | phone.number |
-      | 3737383833   |
-      | 5758848448   |
+      | 373738383  |
+      | 575884844   |
       | 474888484    |
       | 757488939    |
 
@@ -36,9 +37,11 @@ Feature: Validate user authentication functionality
     When user enters the mobile number "phone.number" and clicks get otp
     Then verify the otp page is displayed
     When user enters the otp and clicks submit
+    And user enters the location as "booking.city"
     Then verify user is on the home page
     And verify username is displayed in profile section
     When user clicks on logout button
+    And user enters the location as "booking.city"
     Then verify user is logged out
 
 

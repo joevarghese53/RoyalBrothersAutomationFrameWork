@@ -123,4 +123,20 @@ public class AndroidHomePage extends BasePage implements HomePage {
     public boolean verifyUpdatedLocation() {
         return locationBtn.getText().toUpperCase().equalsIgnoreCase(ConfigReader.getConfigValue("booking.updatedCity"));
     }
+
+    @Override
+    public void clickOnLoginButton() {}
+
+    @Override
+    public boolean isUserNameDisplayed() {return true;}
+
+    @Override
+    public void clickOnLogoutButton() {
+    }
+
+    @Override
+    public boolean verifyUserIsLoggedOut() {
+        return false;
+    }
+
 }

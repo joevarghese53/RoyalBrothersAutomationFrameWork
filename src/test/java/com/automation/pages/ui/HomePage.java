@@ -17,4 +17,12 @@ public interface HomePage {
     void clickOnLocationButton();
 
     boolean verifyUpdatedLocation();
+
+    void clickOnLoginButton();
+
+    boolean isUserNameDisplayed();
+
+    void clickOnLogoutButton();
+
+    boolean verifyUserIsLoggedOut();
 }
