@@ -85,6 +85,8 @@ public class BasePage {
     }
 
     public void scroll(int startX, int startY, int endX, int endY) {
+
+        System.out.println("inside scroll");
         PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
 
         Sequence sequence = new Sequence(finger1, 1)
@@ -93,6 +95,8 @@ public class BasePage {
                 .addAction(finger1.createPointerMove(Duration.ofSeconds(2), PointerInput.Origin.viewport(), endX, endY)).
                 addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         ((AndroidDriver) driver).perform(Collections.singletonList(sequence));
+
+        pause(1);
     }
 
     public void scroll(){
