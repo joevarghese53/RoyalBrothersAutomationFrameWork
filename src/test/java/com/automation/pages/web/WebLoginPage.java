@@ -23,6 +23,9 @@ public class WebLoginPage extends BasePage implements LoginPage {
     @FindBy(xpath = "//div[@id='login']//iframe")
     WebElement iframe;
 
+    @FindBy(xpath = "//div[text()='Enter Valid Phone Number']")
+    WebElement errorMsg;
+
     Actions actions=new Actions(driver);
     @Override
     public boolean isLoginPageDisplayed() {
@@ -31,14 +34,18 @@ public class WebLoginPage extends BasePage implements LoginPage {
 
     @Override
     public boolean isErrorDisplayed() {
-        return false;
+        return isDisplayed(errorMsg);
     }
 
     @Override
     public void enterNumber(String number) {
         loginTab.click();
-        phoneNumberBox.sendKeys(ConfigReader.getConfigValue(number));
-
+        if(!isValidInteger(number)) {
+            phoneNumberBox.sendKeys(ConfigReader.getConfigValue(number));
+        }
+        else{
+            phoneNumberBox.sendKeys(number);
+        }
 
         driver.switchTo().frame(iframe);
 
@@ -52,5 +59,21 @@ public class WebLoginPage extends BasePage implements LoginPage {
 
         actions.moveToElement(otpLoginBtn).build().perform();
         otpLoginBtn.click();
+    }
+
+    public boolean isValidInteger(String str) {
+        System.out.println("inside");
+        if (str == null) {
+            return false;  // If it's not exactly 10 characters, return false
+        }
+
+         try{
+            System.out.println("inside2");
+            Long.parseLong(str); // Try to parse the string as an integer
+            return true;  // If parsing succeeds, it's a valid integer
+        } catch (NumberFormatException e) {
+            System.out.println("inside3");
+            return false;  // If parsing fails, it's not a valid integer
+        }
     }
 }

@@ -21,4 +21,8 @@ public interface HomePage {
     void clickOnLoginButton();
 
     boolean isUserNameDisplayed();
+
+    void clickOnLogoutButton();
+
+    boolean verifyUserIsLoggedOut();
 }

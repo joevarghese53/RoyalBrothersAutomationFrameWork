@@ -43,6 +43,9 @@ public class WebHomePage extends BasePage implements HomePage {
     @FindBy(xpath = "//img[@alt='User Profile']/following-sibling::p")
     WebElement userName;
 
+//    @FindBy(xpath = "//li[@class='logout-button']")
+//    WebElement logoutBtn;
+
     String dateXpath="//div[@aria-hidden='false']//td/div[text()='%s']";
     String timeXpath="//div[@aria-hidden='false']//li[text()='%s']";
 
@@ -123,5 +126,18 @@ public class WebHomePage extends BasePage implements HomePage {
     @Override
     public boolean isUserNameDisplayed() {
         return userName.getText().equals(ConfigReader.getConfigValue("profile.username"));
+    }
+
+    @Override
+    public void clickOnLogoutButton() {
+        actions.moveToElement(userName).build().perform();
+        pause(2);
+        WebElement logoutBtn=driver.findElement(By.xpath("//li[@class='logout-button']"));
+        actions.moveToElement(logoutBtn).pause(1).click().build().perform();
+    }
+
+    @Override
+    public boolean verifyUserIsLoggedOut() {
+        return isDisplayed(loginBtn);
     }
 }

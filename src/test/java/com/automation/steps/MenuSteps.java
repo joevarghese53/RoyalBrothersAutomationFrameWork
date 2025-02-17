@@ -8,7 +8,12 @@ import org.junit.Assert;
 public class MenuSteps extends BaseSteps{
     @Then("verify user is logged out")
     public void verifyUserIsLoggedOut() {
-        Assert.assertTrue(menuPage.verifyUserIsLoggedOut());
+        if (System.getProperty("platform").equals("mobile")) {
+            Assert.assertTrue(menuPage.verifyUserIsLoggedOut());
+        }
+        else{
+            Assert.assertTrue(homePage.verifyUserIsLoggedOut());
+        }
     }
 
     @Then("verify username is displayed in profile section")
@@ -33,6 +38,11 @@ public class MenuSteps extends BaseSteps{
 
     @When("user clicks on logout button")
     public void userClicksOnLogoutButton() {
-        menuPage.clickOnLogoutButton();
+        if (System.getProperty("platform").equals("mobile")) {
+            menuPage.clickOnLogoutButton();
+        }
+        else{
+            homePage.clickOnLogoutButton();
+        }
     }
 }
