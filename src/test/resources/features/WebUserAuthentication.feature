@@ -16,7 +16,7 @@ Feature: Validate user authentication functionality
     Then verify user is on the home page
     And verify username is displayed in profile section
 
-  @android
+  @web
   Scenario Outline: Unsuccessful login with invalid credentials
     When user clicks on login button
     Then verify user is on login page
@@ -25,12 +25,12 @@ Feature: Validate user authentication functionality
 
     Examples:
       | phone.number |
-      | 373738383  |
-      | 575884844   |
+      | 373738383    |
+      | 575884844    |
       | 474888484    |
       | 757488939    |
 
-  @android
+  @web
   Scenario: Successful logout after login
     When user clicks on login button
     Then verify user is on login page

@@ -125,7 +125,7 @@ public class WebHomePage extends BasePage implements HomePage {
 
     @Override
     public boolean isUserNameDisplayed() {
-        return userName.getText().equals(ConfigReader.getConfigValue("profile.username"));
+        return userName.getText().equals(ConfigReader.getConfigValue("web.profile.username"));
     }
 
     @Override
