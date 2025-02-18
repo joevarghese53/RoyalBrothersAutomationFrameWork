@@ -112,6 +112,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public void clickOnMenuIcon() {
         menuIcon.click();
+//        menuIcon.click();
     }
 
     @Override

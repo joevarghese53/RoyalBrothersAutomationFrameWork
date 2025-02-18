@@ -29,6 +29,7 @@ public class BaseSteps {
             rentalBikesPage = new AndroidRentalBikesPage();
             summaryPage = new AndroidSummaryPage();
             menuPage = new AndroidMenuPage();
+            profilePage = new AndroidProfilePage();
         }
     }
 }
