@@ -8,10 +8,10 @@ Feature: Verify rental location selection feature
   @web @android
   Scenario Outline: User can change location successfully
     When user selects location button
-    And user enters the location as "<booking.city>"
+    And user enters the location as "<city>"
     Then verify location is updated correctly
 
     Examples:
-      | booking.city |
+      | city |
       | Agra         |
       | Bangalore    |
