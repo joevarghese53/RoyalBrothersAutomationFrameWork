@@ -45,4 +45,14 @@ public class MenuSteps extends BaseSteps{
             homePage.clickOnLogoutButton();
         }
     }
+
+    @And("user clicks on view profile button")
+    public void userClicksOnViewProfileButton() {
+        if (System.getProperty("platform").equals("mobile")) {
+            menuPage.clickProfileButton();
+        }
+        else{
+            homePage.clickProfileButton();
+        }
+    }
 }

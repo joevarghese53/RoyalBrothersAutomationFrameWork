@@ -27,6 +27,9 @@ public class AndroidMenuPage extends BasePage implements MenuPage {
     @FindBy(xpath = "//android.widget.TextView[@text=\" LOGOUT \"]")
     WebElement confirmLogOutBtn;
 
+    @FindBy(xpath = "//android.widget.TextView[@text=\"VIEW PROFILE\"]")
+    WebElement profileBtn;
+
     @Override
     public void clickOnLoginButton() {
         loginBtn.click();
@@ -47,5 +50,11 @@ public class AndroidMenuPage extends BasePage implements MenuPage {
     @Override
     public boolean verifyUserIsLoggedOut() {
         return isDisplayed(loginBtn);
+    }
+
+    @Override
+    public void clickProfileButton() {
+        profileBtn.click();
+//        profileBtn.click();
     }
 }

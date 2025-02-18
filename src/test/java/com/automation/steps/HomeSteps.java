@@ -36,7 +36,9 @@ public class HomeSteps extends BaseSteps {
 
     @When("user navigates to menu page")
     public void userNavigatesToMenuPage() {
-        homePage.clickOnMenuIcon();
+        if (System.getProperty("platform").equals("mobile")) {
+            homePage.clickOnMenuIcon();
+        }
     }
 
     @When("user selects location button")

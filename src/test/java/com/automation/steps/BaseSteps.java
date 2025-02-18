@@ -12,6 +12,7 @@ public class BaseSteps {
     RentalBikesPage rentalBikesPage;
     SummaryPage summaryPage;
     MenuPage menuPage;
+    ProfilePage profilePage;
 
     public BaseSteps() {
         if (System.getProperty("platform").equals("web")) {
@@ -20,6 +21,7 @@ public class BaseSteps {
             otpSubmissionPage = new WebOtpSubmissionPage();
             rentalBikesPage = new WebRentalBikesPage();
             summaryPage = new WebSummaryPage();
+            profilePage = new WebProfilePage();
         } else {
             homePage = new AndroidHomePage();
             loginPage = new AndroidLoginPage();
@@ -27,6 +29,7 @@ public class BaseSteps {
             rentalBikesPage = new AndroidRentalBikesPage();
             summaryPage = new AndroidSummaryPage();
             menuPage = new AndroidMenuPage();
+            profilePage = new AndroidProfilePage();
         }
     }
 }

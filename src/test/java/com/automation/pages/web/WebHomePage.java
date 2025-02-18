@@ -58,9 +58,17 @@ public class WebHomePage extends BasePage implements HomePage {
 
     @Override
     public void enterLocation(String loc) {
-        locationSearchField.sendKeys(ConfigReader.getConfigValue(loc));
-        WebElement location=driver.findElement(By.xpath(String.format(locationXpath,ConfigReader.getConfigValue(loc))));
-        location.click();
+        WebElement location2;
+        if(loc.equals("booking.city")) {
+            locationSearchField.sendKeys(ConfigReader.getConfigValue(loc));
+            location2=driver.findElement(By.xpath(String.format(locationXpath,ConfigReader.getConfigValue(loc))));
+        }
+        else{
+            locationSearchField.sendKeys(loc);
+            location2=driver.findElement(By.xpath(String.format(locationXpath,loc)));
+        }
+        ConfigReader.setConfigValue("booking.updatedCity",location2.getText());
+        location2.click();
     }
 
     @Override
@@ -115,7 +123,7 @@ public class WebHomePage extends BasePage implements HomePage {
 
     @Override
     public boolean verifyUpdatedLocation() {
-        return location.getText().toUpperCase().equals(ConfigReader.getConfigValue("booking.updatedCity"));
+        return location.getText().equals(ConfigReader.getConfigValue("booking.updatedCity"));
     }
 
     @Override
@@ -139,5 +147,13 @@ public class WebHomePage extends BasePage implements HomePage {
     @Override
     public boolean verifyUserIsLoggedOut() {
         return isDisplayed(loginBtn);
+    }
+
+    @Override
+    public void clickProfileButton() {
+        actions.moveToElement(userName).build().perform();
+        pause(2);
+        WebElement userProfileBtn=driver.findElement(By.xpath("//li[@class='user-profile-button']"));
+        actions.moveToElement(userProfileBtn).pause(1).click().build().perform();
     }
 }

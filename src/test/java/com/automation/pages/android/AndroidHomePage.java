@@ -112,6 +112,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public void clickOnMenuIcon() {
         menuIcon.click();
+//        menuIcon.click();
     }
 
     @Override
@@ -137,6 +138,11 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public boolean verifyUserIsLoggedOut() {
         return false;
+    }
+
+    @Override
+    public void clickProfileButton() {
+
     }
 
 }
