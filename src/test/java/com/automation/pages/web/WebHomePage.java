@@ -148,4 +148,12 @@ public class WebHomePage extends BasePage implements HomePage {
     public boolean verifyUserIsLoggedOut() {
         return isDisplayed(loginBtn);
     }
+
+    @Override
+    public void clickProfileButton() {
+        actions.moveToElement(userName).build().perform();
+        pause(2);
+        WebElement userProfileBtn=driver.findElement(By.xpath("//li[@class='user-profile-button']"));
+        actions.moveToElement(userProfileBtn).pause(1).click().build().perform();
+    }
 }

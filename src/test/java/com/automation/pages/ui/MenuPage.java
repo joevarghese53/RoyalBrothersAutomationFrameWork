@@ -9,4 +9,6 @@ public interface MenuPage {
     void clickOnLogoutButton();
 
     boolean verifyUserIsLoggedOut();
+
+    void clickProfileButton();
 }

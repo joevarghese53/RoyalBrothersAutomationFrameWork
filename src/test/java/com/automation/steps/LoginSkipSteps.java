@@ -18,4 +18,5 @@ public class LoginSkipSteps extends BaseSteps {
     public void verifyTheErrorMessageIsDisplayed() {
         Assert.assertTrue(loginPage.isErrorDisplayed());
     }
+
 }

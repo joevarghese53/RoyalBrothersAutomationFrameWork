@@ -139,4 +139,9 @@ public class AndroidHomePage extends BasePage implements HomePage {
         return false;
     }
 
+    @Override
+    public void clickProfileButton() {
+
+    }
+
 }

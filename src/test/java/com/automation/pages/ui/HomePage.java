@@ -25,4 +25,6 @@ public interface HomePage {
     void clickOnLogoutButton();
 
     boolean verifyUserIsLoggedOut();
+
+    void clickProfileButton();
 }

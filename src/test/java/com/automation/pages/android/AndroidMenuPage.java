@@ -48,4 +48,9 @@ public class AndroidMenuPage extends BasePage implements MenuPage {
     public boolean verifyUserIsLoggedOut() {
         return isDisplayed(loginBtn);
     }
+
+    @Override
+    public void clickProfileButton() {
+
+    }
 }
