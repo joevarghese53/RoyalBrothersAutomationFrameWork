@@ -13,6 +13,8 @@ public class BaseSteps {
     SummaryPage summaryPage;
     MenuPage menuPage;
     ProfilePage profilePage;
+    HelpAndSupportPage helpAndSupportPage;
+    ChatPage chatPage;
 
     public BaseSteps() {
         if (System.getProperty("platform").equals("web")) {
@@ -30,6 +32,8 @@ public class BaseSteps {
             summaryPage = new AndroidSummaryPage();
             menuPage = new AndroidMenuPage();
             profilePage = new AndroidProfilePage();
+            helpAndSupportPage = new AndroidHelpAndSupportPage();
+            chatPage = new AndroidChatPage();
         }
     }
 }

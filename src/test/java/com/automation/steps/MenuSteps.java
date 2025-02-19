@@ -55,4 +55,11 @@ public class MenuSteps extends BaseSteps{
             homePage.clickProfileButton();
         }
     }
+
+    @And("clicks help & support button")
+    public void clicksHelpSupportButton() {
+        menuPage.clickHelp();
+    }
+
+
 }

@@ -11,4 +11,6 @@ public interface MenuPage {
     boolean verifyUserIsLoggedOut();
 
     void clickProfileButton();
+
+    void clickHelp();
 }
