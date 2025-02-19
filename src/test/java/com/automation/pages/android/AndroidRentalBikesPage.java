@@ -36,6 +36,9 @@ public class AndroidRentalBikesPage extends BasePage implements RentalBikesPage 
     @FindBy(xpath = "(//android.widget.HorizontalScrollView//android.widget.TextView)[1]")
     WebElement categoryFilter;
 
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Sort By\"]")
+    WebElement sortByBtn;
+
     String filterXpath = "//android.widget.TextView[@text='%s']";
 
     String optionXpath = "//android.widget.TextView[@text='%s']/preceding-sibling::android.view.ViewGroup";
@@ -74,13 +77,53 @@ public class AndroidRentalBikesPage extends BasePage implements RentalBikesPage 
     @Override
     public void applyFilter(String filter, String option) {
         driver.findElement(By.xpath(String.format(filterXpath, filter))).click();
-        System.out.println(String.format(optionXpath, option));
         if (filter.equalsIgnoreCase("Model")) {
             driver.findElement(By.xpath(String.format(modelOptionXpath, option))).click();
         } else {
             driver.findElement(By.xpath(String.format(optionXpath, option))).click();
         }
         applyBtn.click();
+    }
+
+    @Override
+    public void applySort(String option) {
+        sortByBtn.click();
+        driver.findElement(By.xpath(String.format(optionXpath, option))).click();
+        applyBtn.click();
+    }
+
+    @Override
+    public boolean verifySortApplied(String option) {
+        WebElement topElement = driver.findElement(By.xpath("//android.widget.TextView[contains(@text,\"All prices are\")]"));
+        WebElement bottomElement = driver.findElement(By.xpath("//android.widget.TextView[@text=\"km limit\"]"));
+        int topX = topElement.getLocation().getX();
+        int topY = topElement.getLocation().getY();
+        int bottomX = bottomElement.getLocation().getX();
+        int bottomY = bottomElement.getLocation().getY();
+        int count = 0;
+        float price = (option.equalsIgnoreCase("Low to High")) ? Float.MIN_VALUE : Float.MAX_VALUE;
+        while (count < 3){
+            scroll(bottomX, bottomY, topX, topY);
+            float newPrice = Float.parseFloat(driver.findElement(By.xpath("//android.widget.TextView[@text=\"BOOK NOW\"]/preceding-sibling::android.widget.TextView")).getText().replace("₹","").trim());
+            if (option.equalsIgnoreCase("Low to High")){
+                if (newPrice > price){
+                    price = newPrice;
+                } else {
+                    return false;
+                }
+            } else if (option.equalsIgnoreCase("High to Low")){
+                if (newPrice < price){
+                    price = newPrice;
+                } else {
+                    return false;
+                }
+            } else {
+                System.out.println("wrong sort option");
+                return false;
+            }
+            count++;
+        }
+        return true;
     }
 
     @Override

@@ -67,5 +67,15 @@ public class WebRentalBikesPage extends BasePage implements RentalBikesPage {
         return true;
     }
 
+    @Override
+    public void applySort(String option) {
+
+    }
+
+    @Override
+    public boolean verifySortApplied(String option) {
+        return true;
+    }
+
 
 }

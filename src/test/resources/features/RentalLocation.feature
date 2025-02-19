@@ -12,6 +12,6 @@ Feature: Verify rental location selection feature
     Then verify location is updated correctly
 
     Examples:
-      | city |
-      | Agra         |
-      | Bangalore    |
+      | city      |
+      | Agra      |
+      | Bangalore |

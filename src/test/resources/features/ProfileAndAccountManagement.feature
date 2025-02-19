@@ -5,7 +5,6 @@ Feature: Profile and Account Management
     And user enters the location as "booking.city"
     Then verify user is on the home page
 
-
   @web
   Scenario: Verify user can successfully edit the email in web
     When user clicks on login button

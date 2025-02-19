@@ -118,6 +118,7 @@ public class WebHomePage extends BasePage implements HomePage {
 
     @Override
     public void clickOnLocationButton() {
+        pause(1);
         locationBtn.click();
     }
 

@@ -15,4 +15,8 @@ public interface RentalBikesPage {
     void applyFilter(String filter, String option);
 
     boolean verifyFilterApplied(String filter, String option);
+
+    void applySort(String option);
+
+    boolean verifySortApplied(String option);
 }

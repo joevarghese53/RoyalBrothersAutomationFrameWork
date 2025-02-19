@@ -44,4 +44,14 @@ public class RentalBikeSteps extends BaseSteps {
     public void verifyFilterIsAppliedWith(String filer, String option) {
         Assert.assertTrue(rentalBikesPage.verifyFilterApplied(filer, option));
     }
+
+    @And("applies sorting with {string}")
+    public void appliesSortingWith(String option) {
+        rentalBikesPage.applySort(option);
+    }
+
+    @Then("verify items are sorted according to {string}")
+    public void verifyItemsAreSortedAccordingTo(String option) {
+        Assert.assertTrue(rentalBikesPage.verifySortApplied(option));
+    }
 }

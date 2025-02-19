@@ -19,3 +19,17 @@ Feature: Verify filter and sort functionality
       | Category | Commuter                |
       | Location | Central Railway station |
       | Model    | Aprilia                 |
+
+  @web @android
+  Scenario Outline: Sort Functionality
+    When user enters pickUp and dropOff date and time as "pickUp.date", "pickUp.time","dropOff.date","dropOff.time"
+    And clicks the search button
+    Then verify the user is on the rental bikes page
+    When user clicks on filter and sort button
+    And applies sorting with "<option>"
+    Then verify items are sorted according to "<option>"
+
+    Examples:
+      | option      |
+      | High to Low |
+      | Low to High |

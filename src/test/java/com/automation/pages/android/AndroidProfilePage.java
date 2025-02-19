@@ -28,7 +28,7 @@ public class AndroidProfilePage extends BasePage implements ProfilePage {
     @Override
     public void clickEmailEditIcon() {
         emailEditIcon.click();
-        emailEditIcon.click();
+//        emailEditIcon.click();
     }
 
     @Override
