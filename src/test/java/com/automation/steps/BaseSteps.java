@@ -24,6 +24,7 @@ public class BaseSteps {
             rentalBikesPage = new WebRentalBikesPage();
             summaryPage = new WebSummaryPage();
             profilePage = new WebProfilePage();
+            chatPage = new WebChatPage();
         } else {
             homePage = new AndroidHomePage();
             loginPage = new AndroidLoginPage();

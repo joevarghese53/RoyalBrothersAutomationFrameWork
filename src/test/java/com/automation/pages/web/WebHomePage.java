@@ -43,8 +43,8 @@ public class WebHomePage extends BasePage implements HomePage {
     @FindBy(xpath = "//img[@alt='User Profile']/following-sibling::p")
     WebElement userName;
 
-//    @FindBy(xpath = "//li[@class='logout-button']")
-//    WebElement logoutBtn;
+    @FindBy(id = "widget-open")
+    WebElement chatBotBtn;
 
     String dateXpath="//div[@aria-hidden='false']//td/div[text()='%s']";
     String timeXpath="//div[@aria-hidden='false']//li[text()='%s']";
@@ -156,5 +156,10 @@ public class WebHomePage extends BasePage implements HomePage {
         pause(2);
         WebElement userProfileBtn=driver.findElement(By.xpath("//li[@class='user-profile-button']"));
         actions.moveToElement(userProfileBtn).pause(1).click().build().perform();
+    }
+
+    @Override
+    public void clickChatBot() {
+        chatBotBtn.click();
     }
 }

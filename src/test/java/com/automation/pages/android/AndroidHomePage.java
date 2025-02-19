@@ -132,8 +132,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
     public boolean isUserNameDisplayed() {return true;}
 
     @Override
-    public void clickOnLogoutButton() {
-    }
+    public void clickOnLogoutButton() {}
 
     @Override
     public boolean verifyUserIsLoggedOut() {
@@ -141,8 +140,9 @@ public class AndroidHomePage extends BasePage implements HomePage {
     }
 
     @Override
-    public void clickProfileButton() {
+    public void clickProfileButton() {}
 
-    }
+    @Override
+    public void clickChatBot() {}
 
 }

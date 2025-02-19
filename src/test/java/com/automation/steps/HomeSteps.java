@@ -50,4 +50,9 @@ public class HomeSteps extends BaseSteps {
     public void verifyLocationIsUpdatedCorrectly() {
         Assert.assertTrue(homePage.verifyUpdatedLocation());
     }
+
+    @When("user clicks the chatbot option")
+    public void userClicksTheChatbotOption() {
+        homePage.clickChatBot();
+    }
 }
