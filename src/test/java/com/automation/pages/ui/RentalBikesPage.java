@@ -19,4 +19,6 @@ public interface RentalBikesPage {
     void applySort(String option);
 
     boolean verifySortApplied(String option);
+
+    boolean verifyPriceIsDisplayedAccordingToTariff();
 }

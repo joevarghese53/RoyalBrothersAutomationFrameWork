@@ -27,4 +27,6 @@ public interface HomePage {
     boolean verifyUserIsLoggedOut();
 
     void clickProfileButton();
+
+    void clickOnTariffsIcon();
 }

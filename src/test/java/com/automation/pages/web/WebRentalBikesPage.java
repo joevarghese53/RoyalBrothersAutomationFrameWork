@@ -77,5 +77,23 @@ public class WebRentalBikesPage extends BasePage implements RentalBikesPage {
         return true;
     }
 
+    @Override
+    public boolean verifyPriceIsDisplayedAccordingToTariff() {
+        String pickUpDate = ConfigReader.getConfigValue("pickUp.date");
+        String pickUpTime = ConfigReader.getConfigValue("pickUp.time");
+        String dropOffDate = ConfigReader.getConfigValue("dropOff.date");
+        String dropOffTime = ConfigReader.getConfigValue("dropOff.time");
+        long totalHours = calculateTotalHours(pickUpDate, pickUpTime, dropOffDate, dropOffTime);
+        float minBookingTime = Float.parseFloat(ConfigReader.getConfigValue("minBooking.time"));
+        float expectedFair;
+        if (minBookingTime > totalHours) {
+            expectedFair = minBookingTime * Float.parseFloat(ConfigReader.getConfigValue("fairPerHour.price"));
+        } else {
+            expectedFair = totalHours * Float.parseFloat(ConfigReader.getConfigValue("fairPerHour.price"));
+        }
+        float actualFair = Float.parseFloat(bikePrice.getText());
+        return actualFair == expectedFair;
+    }
+
 
 }

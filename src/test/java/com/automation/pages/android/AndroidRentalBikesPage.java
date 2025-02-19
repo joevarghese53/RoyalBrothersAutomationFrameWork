@@ -39,6 +39,9 @@ public class AndroidRentalBikesPage extends BasePage implements RentalBikesPage 
     @FindBy(xpath = "//android.widget.TextView[@text=\"Sort By\"]")
     WebElement sortByBtn;
 
+    @FindBy(xpath = "//android.widget.TextView[@text=\"BOOK NOW\"]/preceding-sibling::android.widget.TextView")
+    WebElement bikeFair;
+
     String filterXpath = "//android.widget.TextView[@text='%s']";
 
     String optionXpath = "//android.widget.TextView[@text='%s']/preceding-sibling::android.view.ViewGroup";
@@ -102,17 +105,17 @@ public class AndroidRentalBikesPage extends BasePage implements RentalBikesPage 
         int bottomY = bottomElement.getLocation().getY();
         int count = 0;
         float price = (option.equalsIgnoreCase("Low to High")) ? Float.MIN_VALUE : Float.MAX_VALUE;
-        while (count < 3){
+        while (count < 3) {
             scroll(bottomX, bottomY, topX, topY);
-            float newPrice = Float.parseFloat(driver.findElement(By.xpath("//android.widget.TextView[@text=\"BOOK NOW\"]/preceding-sibling::android.widget.TextView")).getText().replace("₹","").trim());
-            if (option.equalsIgnoreCase("Low to High")){
-                if (newPrice > price){
+            float newPrice = Float.parseFloat(driver.findElement(By.xpath("//android.widget.TextView[@text=\"BOOK NOW\"]/preceding-sibling::android.widget.TextView")).getText().replace("₹", "").trim());
+            if (option.equalsIgnoreCase("Low to High")) {
+                if (newPrice > price) {
                     price = newPrice;
                 } else {
                     return false;
                 }
-            } else if (option.equalsIgnoreCase("High to Low")){
-                if (newPrice < price){
+            } else if (option.equalsIgnoreCase("High to Low")) {
+                if (newPrice < price) {
                     price = newPrice;
                 } else {
                     return false;
@@ -124,6 +127,29 @@ public class AndroidRentalBikesPage extends BasePage implements RentalBikesPage 
             count++;
         }
         return true;
+    }
+
+    @Override
+    public boolean verifyPriceIsDisplayedAccordingToTariff() {
+        WebElement topElement = driver.findElement(By.xpath("//android.widget.TextView[contains(@text,\"All prices are\")]"));
+        WebElement bottomElement = driver.findElement(By.xpath("//android.widget.ImageView"));
+        scroll(topElement, bottomElement);
+
+        String pickUpDate = ConfigReader.getConfigValue("pickUp.date");
+        String pickUpTime = ConfigReader.getConfigValue("pickUp.time");
+        String dropOffDate = ConfigReader.getConfigValue("dropOff.date");
+        String dropOffTime = ConfigReader.getConfigValue("dropOff.time");
+        long totalHours = calculateTotalHours(pickUpDate, pickUpTime, dropOffDate, dropOffTime);
+        float minBookingTime = Float.parseFloat(ConfigReader.getConfigValue("minBooking.time"));
+        float expectedFair;
+        if (minBookingTime > totalHours) {
+            expectedFair = minBookingTime * Float.parseFloat(ConfigReader.getConfigValue("fairPerHour.price"));
+        } else {
+            expectedFair = totalHours * Float.parseFloat(ConfigReader.getConfigValue("fairPerHour.price"));
+        }
+
+        float actualFair = Float.parseFloat(bikeFair.getText().replaceAll("[^0-9.]", ""));
+        return actualFair == expectedFair;
     }
 
     @Override

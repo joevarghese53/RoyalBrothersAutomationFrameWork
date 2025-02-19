@@ -50,4 +50,10 @@ public class HomeSteps extends BaseSteps {
     public void verifyLocationIsUpdatedCorrectly() {
         Assert.assertTrue(homePage.verifyUpdatedLocation());
     }
+
+    @When("user navigates to tariffs page")
+    public void userNavigatesToTariffsPage() {
+        homePage.clickOnTariffsIcon();
+    }
+
 }

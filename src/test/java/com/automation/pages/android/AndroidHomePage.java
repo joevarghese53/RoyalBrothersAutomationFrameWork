@@ -37,6 +37,9 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @FindBy(xpath = "//android.widget.TextView[@text=\"Book Now, Ride Anywhere\"]/../../preceding-sibling::android.view.ViewGroup//android.widget.TextView")
     WebElement locationBtn;
 
+    @FindBy(xpath = "//android.view.View[@content-desc=\"TARIFFS\"]")
+    WebElement tariffIcon;
+
     String dateXpath="//android.widget.TextView[@text=\"%s\"]";
     String timeXpath="//android.widget.TextView[@text=\"%s\"]";
     String locationXpath="//android.view.ViewGroup[@content-desc=\"%s\"]/android.view.ViewGroup/android.view.ViewGroup";
@@ -143,6 +146,11 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public void clickProfileButton() {
 
+    }
+
+    @Override
+    public void clickOnTariffsIcon() {
+        tariffIcon.click();
     }
 
 }
