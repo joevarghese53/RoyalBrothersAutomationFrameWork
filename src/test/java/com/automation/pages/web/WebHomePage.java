@@ -102,7 +102,7 @@ public class WebHomePage extends BasePage implements HomePage {
         WebElement dateElt=driver.findElement(By.xpath(String.format(dateXpath,ConfigReader.getConfigValue(date).split(" ")[0])));
         dateElt.click();
 
-        String timeConfig=null;
+        String timeConfig;
         if(ConfigReader.getConfigValue(time).charAt(0)=='0') {
             timeConfig =ConfigReader.getConfigValue(time).replaceFirst("0","");
         }
