@@ -49,6 +49,8 @@ public class WebHomePage extends BasePage implements HomePage {
 
 //    @FindBy(xpath = "//li[@class='logout-button']")
 //    WebElement logoutBtn;
+    @FindBy(id = "widget-open")
+    WebElement chatBotBtn;
 
     String dateXpath="//div[@aria-hidden='false']//td/div[text()='%s']";
     String timeXpath="//div[@aria-hidden='false']//li[text()='%s']";
@@ -166,5 +168,10 @@ public class WebHomePage extends BasePage implements HomePage {
     @Override
     public void clickOnTariffsIcon() {
         tariffIcon.click();
+    }
+
+    @Override
+    public void clickChatBot() {
+        chatBotBtn.click();
     }
 }

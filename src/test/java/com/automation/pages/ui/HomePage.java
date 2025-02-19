@@ -29,4 +29,6 @@ public interface HomePage {
     void clickProfileButton();
 
     void clickOnTariffsIcon();
+
+    void clickChatBot();
 }

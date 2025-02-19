@@ -26,6 +26,7 @@ public class BaseSteps {
             summaryPage = new WebSummaryPage();
             profilePage = new WebProfilePage();
             tariffPage = new WebTariffPage();
+            chatPage = new WebChatPage();
         } else {
             homePage = new AndroidHomePage();
             loginPage = new AndroidLoginPage();

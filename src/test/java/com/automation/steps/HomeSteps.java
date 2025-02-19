@@ -56,4 +56,9 @@ public class HomeSteps extends BaseSteps {
         homePage.clickOnTariffsIcon();
     }
 
+
+    @When("user clicks the chatbot option")
+    public void userClicksTheChatbotOption() {
+        homePage.clickChatBot();
+    }
 }
