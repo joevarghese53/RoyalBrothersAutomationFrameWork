@@ -30,6 +30,9 @@ public class AndroidMenuPage extends BasePage implements MenuPage {
     @FindBy(xpath = "//android.widget.TextView[@text=\"VIEW PROFILE\"]")
     WebElement profileBtn;
 
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Help & Support\"]")
+    WebElement helpBtn;
+
     @Override
     public void clickOnLoginButton() {
         loginBtn.click();
@@ -57,4 +60,11 @@ public class AndroidMenuPage extends BasePage implements MenuPage {
         profileBtn.click();
 //        profileBtn.click();
     }
+
+    @Override
+    public void clickHelp() {
+        helpBtn.click();
+    }
+
+
 }
