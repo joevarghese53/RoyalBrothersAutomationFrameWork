@@ -5,13 +5,13 @@ Feature: Verify filter and sort functionality
     And user enters the location as "booking.city"
     Then verify user is on the home page
 
-  @web @android
-  Scenario Outline: Filter functionality
+  @android
+  Scenario Outline: Filter functionality android
     When user enters pickUp and dropOff date and time as "pickUp.date", "pickUp.time","dropOff.date","dropOff.time"
     And clicks the search button
     Then verify the user is on the rental bikes page
     When user clicks on filter and sort button
-    And applies filter "<filter>" with option "<option>"
+    And user applies filter "<filter>" with option "<option>"
     Then verify filter "<filter>" is applied with "<option>"
 
     Examples:
@@ -20,13 +20,40 @@ Feature: Verify filter and sort functionality
       | Location | Central Railway station |
       | Model    | Aprilia                 |
 
-  @web @android
-  Scenario Outline: Sort Functionality
+  @android
+  Scenario Outline: Sort Functionality android
     When user enters pickUp and dropOff date and time as "pickUp.date", "pickUp.time","dropOff.date","dropOff.time"
     And clicks the search button
     Then verify the user is on the rental bikes page
     When user clicks on filter and sort button
-    And applies sorting with "<option>"
+    And user applies sorting with "<option>"
+    Then verify items are sorted according to "<option>"
+
+    Examples:
+      | option      |
+      | High to Low |
+      | Low to High |
+
+  @web
+  Scenario Outline: Filter functionality web
+    When user enters pickUp and dropOff date and time as "pickUp.date", "pickUp.time","dropOff.date","dropOff.time"
+    And clicks the search button
+    Then verify the user is on the rental bikes page
+    When user applies filter "<filter>" with option "<option>"
+    Then verify filter "<filter>" is applied with "<option>"
+
+    Examples:
+      | filter   | option                  |
+      | Model    | Aprilia                 |
+      | Location | Central Railway station |
+
+
+  @web
+  Scenario Outline: Sort Functionality web
+    When user enters pickUp and dropOff date and time as "pickUp.date", "pickUp.time","dropOff.date","dropOff.time"
+    And clicks the search button
+    Then verify the user is on the rental bikes page
+    When user applies sorting with "<option>"
     Then verify items are sorted according to "<option>"
 
     Examples:

@@ -35,8 +35,8 @@ public class RentalBikeSteps extends BaseSteps {
         rentalBikesPage.clickOnFilterAndSortBtn();
     }
 
-    @And("applies filter {string} with option {string}")
-    public void appliesFilterWithOption(String filter, String option) {
+    @And("user applies filter {string} with option {string}")
+    public void userAppliesFilterWithOption(String filter, String option) {
         rentalBikesPage.applyFilter(filter, option);
     }
 
@@ -45,8 +45,8 @@ public class RentalBikeSteps extends BaseSteps {
         Assert.assertTrue(rentalBikesPage.verifyFilterApplied(filer, option));
     }
 
-    @And("applies sorting with {string}")
-    public void appliesSortingWith(String option) {
+    @And("user applies sorting with {string}")
+    public void userAppliesSortingWith(String option) {
         rentalBikesPage.applySort(option);
     }
 

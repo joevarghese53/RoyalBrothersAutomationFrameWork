@@ -24,6 +24,20 @@ public class WebRentalBikesPage extends BasePage implements RentalBikesPage {
     @FindBy(xpath = "//button[text()='Apply filter']")
     WebElement applyFilterBtn;
 
+    @FindBy(xpath = "//input[@placeholder=\"Search Bike Model\"]")
+    WebElement modelSearchBox;
+
+    @FindBy(xpath = "//input[@placeholder=\"Search Location\"]")
+    WebElement locationSearchBox;
+
+    @FindBy(xpath = "(//input[@value=\"Location\"])[1]")
+    WebElement showLocationsBtn;
+
+    @FindBy(xpath = "//li[text()=\"Fully Available\"]/following-sibling::li")
+    WebElement availableLocation;
+
+    String OptionXpath = "//div[not(contains(@class,\"mobile\"))]/ul//label[contains(normalize-space(.), '%s')]";
+
     Actions actions=new Actions(driver);
 
     @Override
@@ -59,12 +73,30 @@ public class WebRentalBikesPage extends BasePage implements RentalBikesPage {
 
     @Override
     public void applyFilter(String filter, String option) {
+        if (filter.equalsIgnoreCase("Model")){
+            modelSearchBox.sendKeys(option);
+            driver.findElement(By.xpath(String.format(OptionXpath,option))).click();
+            applyFilterBtn.click();
+        } else if (filter.equalsIgnoreCase("Location")){
+            locationSearchBox.sendKeys(option);
+            driver.findElement(By.xpath(String.format(OptionXpath,option))).click();
+            applyFilterBtn.click();
+        }
 
     }
 
     @Override
     public boolean verifyFilterApplied(String filter, String option) {
-        return true;
+        if (filter.equalsIgnoreCase("Model")){
+            return bikeName.getText().contains(option);
+        }else if (filter.equalsIgnoreCase("Location")){
+            showLocationsBtn.click();
+            waitUntilVisible(availableLocation);
+            return availableLocation.getText().contains(option);
+        } else {
+            System.out.println("wrong option");
+            return false;
+        }
     }
 
     @Override
