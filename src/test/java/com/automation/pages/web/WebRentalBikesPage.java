@@ -125,7 +125,7 @@ public class WebRentalBikesPage extends BasePage implements RentalBikesPage {
             prevPrice = Float.MIN_VALUE;
             for (int i = 0; i < 3; i++) {
                 float currPrice = Float.parseFloat(bikePrices.get(i).getText());
-                if (currPrice > prevPrice){
+                if (currPrice >= prevPrice){
                     prevPrice = currPrice;
                 } else {
                     return false;
@@ -136,7 +136,7 @@ public class WebRentalBikesPage extends BasePage implements RentalBikesPage {
             prevPrice = Float.MAX_VALUE;
             for (int i = 0; i < 3; i++) {
                 float currPrice = Float.parseFloat(bikePrices.get(i).getText());
-                if (currPrice < prevPrice){
+                if (currPrice <= prevPrice){
                     prevPrice = currPrice;
                 } else {
                     return false;

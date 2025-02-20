@@ -30,7 +30,7 @@ public class AndroidChatPage extends BasePage implements ChatPage {
     public void sendMsg(){
         yourMsgBox.sendKeys("Hi");
         sndButton.click();
-        sndButton.click();
+//        sndButton.click();
     }
 
     public boolean isUserMsgSent(){

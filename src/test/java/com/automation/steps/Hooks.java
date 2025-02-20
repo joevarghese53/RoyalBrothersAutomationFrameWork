@@ -18,9 +18,10 @@ public class Hooks {
     @After
     public void cleanUp(Scenario scenario) {
         if (scenario.isFailed()) {
-            Allure.addAttachment("screenshot", DriverManager.takeScreenshotAsBase64());
-            scenario.attach(DriverManager.takeScreenshotAsBase64(), "image/png", "screenshot");
+            scenario.attach(DriverManager.takeScreenshotAsInputStream(), "image/png", "screenshot");
         }
-//        DriverManager.getDriver().quit();
+        scenario.attach(DriverManager.takeScreenshotAsInputStream(), "image/png", "screenshot");
+        DriverManager.getDriver().quit();
     }
 }
+

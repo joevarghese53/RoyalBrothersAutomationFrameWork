@@ -8,14 +8,14 @@ import org.openqa.selenium.support.FindBy;
 
 public class AndroidLoginPage extends BasePage implements LoginPage {
 
-    @FindBy(xpath = "//android.widget.TextView[@text='Something Went Wrong, Please Try Again']")
-    WebElement errorMsg;
-
     @FindBy(xpath = "//android.widget.TextView[@text='GET OTP']")
     WebElement getOtpBtn;
 
     @FindBy(xpath = "//android.widget.EditText[@text='Enter Your Phone Number']")
     WebElement numberField;
+
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Please Provide Valid Phone\"]")
+    WebElement errorMsg;
 
     @Override
     public boolean isErrorDisplayed() {
