@@ -23,11 +23,12 @@ public class BasePage {
 
     protected static WebDriver driver;
     protected WebDriverWait wait;
-
+    public Actions actions;
     public BasePage() {
         driver = DriverManager.getDriver();
         PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        actions = new Actions(driver);
     }
 
     public boolean isDisplayed(WebElement ele) {

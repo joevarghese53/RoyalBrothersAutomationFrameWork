@@ -26,7 +26,6 @@ public class WebLoginPage extends BasePage implements LoginPage {
     @FindBy(xpath = "//div[text()='Enter Valid Phone Number']")
     WebElement errorMsg;
 
-    Actions actions=new Actions(driver);
     @Override
     public boolean isLoginPageDisplayed() {
         return isDisplayed(loginTab);

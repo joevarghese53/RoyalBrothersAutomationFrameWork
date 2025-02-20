@@ -61,5 +61,4 @@ public class MenuSteps extends BaseSteps{
         menuPage.clickHelp();
     }
 
-
 }

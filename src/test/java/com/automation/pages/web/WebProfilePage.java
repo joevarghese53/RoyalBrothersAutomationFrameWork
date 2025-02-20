@@ -24,7 +24,6 @@ public class WebProfilePage extends BasePage implements ProfilePage {
     @FindBy(id = "toast-close")
     WebElement closeError;
 
-    Actions actions=new Actions(driver);
     @Override
     public boolean isProfilePageDisplayed() {
         return isDisplayed(userDetailsContainer);

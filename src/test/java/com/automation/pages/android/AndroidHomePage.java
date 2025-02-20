@@ -149,6 +149,11 @@ public class AndroidHomePage extends BasePage implements HomePage {
     public void clickChatBot() {}
 
     @Override
+    public void navigateToRbStore() {
+
+    }
+
+    @Override
     public void clickOnTariffsIcon() {
         tariffIcon.click();
     }

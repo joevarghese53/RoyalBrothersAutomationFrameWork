@@ -15,6 +15,9 @@ public class BaseSteps {
     ProfilePage profilePage;
     HelpAndSupportPage helpAndSupportPage;
     ChatPage chatPage;
+    RbProductPage rbProductPage;
+    SelectedProductPage selectedProductPage;
+    CheckoutPage checkoutPage;
     TariffPage tariffPage;
 
     public BaseSteps() {
@@ -27,6 +30,10 @@ public class BaseSteps {
             profilePage = new WebProfilePage();
             tariffPage = new WebTariffPage();
             chatPage = new WebChatPage();
+            rbProductPage = new WebRbProductPage();
+            selectedProductPage = new WebSelectedProductPage();
+            checkoutPage = new WebCheckoutPage();
+
         } else {
             homePage = new AndroidHomePage();
             loginPage = new AndroidLoginPage();

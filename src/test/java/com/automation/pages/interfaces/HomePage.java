@@ -31,4 +31,6 @@ public interface HomePage {
     void clickOnTariffsIcon();
 
     void clickChatBot();
+
+    void navigateToRbStore();
 }
