@@ -1,7 +1,7 @@
 package com.automation.pages.web;
 
 import com.automation.pages.common.BasePage;
-import com.automation.pages.ui.SelectedProductPage;
+import com.automation.pages.interfaces.SelectedProductPage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -46,6 +46,10 @@ public class WebSelectedProductPage extends BasePage implements SelectedProductP
     WebElement secondProdPrice;
 
     String productHeadingXpath="//h2[text()='%s']";
+
+    String productMinusBtn = "//a[text()='%s']/../following-sibling::div//button[@name='minus']";
+
+    String productName = "//a[text()='%s']";
 
     @Override
     public boolean isSelectedProdPageDisplayed(String prod) {
@@ -111,5 +115,16 @@ public class WebSelectedProductPage extends BasePage implements SelectedProductP
     @Override
     public void clickCheckout() {
         checkoutBtn.click();
+    }
+
+    @Override
+    public void removeProduct(String prod) {
+        driver.findElement(By.xpath(String.format(productMinusBtn,ConfigReader.getConfigValue(prod)))).click();
+    }
+
+    @Override
+    public boolean isProductRemoved(String prod) {
+        pause(3);
+        return isDisplayed(productName, ConfigReader.getConfigValue(prod));
     }
 }

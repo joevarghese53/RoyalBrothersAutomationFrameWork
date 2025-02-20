@@ -18,7 +18,4 @@ public class RbProductSteps extends BaseSteps{
         rbProductPage.clickProduct(prod);
     }
 
-
-
-
 }

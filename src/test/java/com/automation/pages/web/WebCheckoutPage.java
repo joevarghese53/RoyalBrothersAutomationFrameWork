@@ -1,7 +1,7 @@
 package com.automation.pages.web;
 
 import com.automation.pages.common.BasePage;
-import com.automation.pages.ui.CheckoutPage;
+import com.automation.pages.interfaces.CheckoutPage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

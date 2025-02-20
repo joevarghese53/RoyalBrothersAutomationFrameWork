@@ -19,4 +19,8 @@ public interface SelectedProductPage {
     void clickChooseOptionOfSecondProd();
 
     void clickCheckout();
+
+    void removeProduct(String prod);
+
+    boolean isProductRemoved(String prod);
 }
