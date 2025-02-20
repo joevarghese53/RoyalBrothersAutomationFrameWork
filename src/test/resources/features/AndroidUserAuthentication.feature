@@ -23,7 +23,7 @@ Feature: Validate user authentication functionality
     And user clicks on login button
     Then verify user is on login page
     When user enters the mobile number "<phone.number>" and clicks get otp
-    Then verify error message is displayed
+    Then verify the error message is displayed
 
     Examples:
       | phone.number |

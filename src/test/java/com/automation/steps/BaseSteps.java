@@ -1,7 +1,7 @@
 package com.automation.steps;
 
 import com.automation.pages.android.*;
-import com.automation.pages.ui.*;
+import com.automation.pages.interfaces.*;
 import com.automation.pages.web.*;
 
 public class BaseSteps {

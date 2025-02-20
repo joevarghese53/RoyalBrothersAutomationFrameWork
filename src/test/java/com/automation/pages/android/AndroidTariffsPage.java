@@ -1,32 +1,30 @@
 package com.automation.pages.android;
 
 import com.automation.pages.common.BasePage;
-import com.automation.pages.ui.TariffPage;
+import com.automation.pages.interfaces.TariffPage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
 public class AndroidTariffsPage extends BasePage implements TariffPage {
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"Bike Rental\"]")
+    @FindBy(xpath = "//android.widget.TextView[@text='Bike Rental']")
     WebElement bikeRentalHeading;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"CHECK AVAILABILITY\"]")
+    @FindBy(xpath = "//android.widget.TextView[@text='CHECK AVAILABILITY']")
     WebElement checkAvailability;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"km limit\"]/../../following-sibling::android.view.ViewGroup//com.horcrux.svg.SvgView")
+    @FindBy(xpath = "//android.widget.TextView[@text='km limit']/../../following-sibling::android.view.ViewGroup//com.horcrux.svg.SvgView")
     WebElement expandArrow;
 
-    @FindBy(xpath = "//android.widget.TextView[contains(@text,\"min booking\")]")
+    @FindBy(xpath = "//android.widget.TextView[contains(@text,'min booking')]")
     WebElement minBooking;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"BOOK NOW\"]/preceding-sibling::android.widget.TextView")
+    @FindBy(xpath = "//android.widget.TextView[@text='BOOK NOW']/preceding-sibling::android.widget.TextView")
     WebElement fairPerHour;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"BOOK NOW\"]")
+    @FindBy(xpath = "//android.widget.TextView[@text='BOOK NOW']")
     WebElement bookNowBtn;
 
     @Override
@@ -41,7 +39,7 @@ public class AndroidTariffsPage extends BasePage implements TariffPage {
 
     @Override
     public void storeTariffValues() {
-        WebElement topElement = driver.findElement(By.xpath("//android.widget.TextView[contains(@text,\"All prices are\")]"));
+        WebElement topElement = driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'All prices are')]"));
         WebElement bottomElement = driver.findElement(By.xpath("//android.widget.ImageView"));
         scroll(topElement, bottomElement);
         expandArrow.click();

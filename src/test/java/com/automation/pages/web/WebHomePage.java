@@ -1,7 +1,7 @@
 package com.automation.pages.web;
 
 import com.automation.pages.common.BasePage;
-import com.automation.pages.ui.HomePage;
+import com.automation.pages.interfaces.HomePage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -18,10 +18,10 @@ public class WebHomePage extends BasePage implements HomePage {
 
     String locationXpath="//p[text()=' %s']";
 
-    @FindBy(xpath = "//a[contains(@class,\"current-city\")]")
+    @FindBy(xpath = "//a[contains(@class,'current-city')]")
     WebElement locationBtn;
 
-    @FindBy(xpath = "//a[contains(@class,\"current-city\")]/span")
+    @FindBy(xpath = "//a[contains(@class,'current-city')]/span")
     WebElement location;
 
     @FindBy(xpath = "//div[@aria-hidden='false']//div[@class='picker__month']")
@@ -42,7 +42,7 @@ public class WebHomePage extends BasePage implements HomePage {
     @FindBy(xpath = "//img[@alt='User Profile']/following-sibling::p")
     WebElement userName;
 
-    @FindBy(xpath = "//ul[@id=\"nav-mobile\"]//a[text()=\"Tariff\"]")
+    @FindBy(xpath = "//ul[@id='nav-mobile']//a[text()='Tariff']")
     WebElement tariffIcon;
 
 

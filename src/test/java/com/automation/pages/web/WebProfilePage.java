@@ -1,13 +1,11 @@
 package com.automation.pages.web;
 
 import com.automation.pages.common.BasePage;
-import com.automation.pages.ui.ProfilePage;
+import com.automation.pages.interfaces.ProfilePage;
 import com.automation.utils.ConfigReader;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebProfilePage extends BasePage implements ProfilePage {
 

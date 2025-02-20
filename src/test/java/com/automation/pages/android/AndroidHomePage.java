@@ -3,7 +3,7 @@ package com.automation.pages.android;
 
 import com.automation.pages.common.BasePage;
 
-import com.automation.pages.ui.HomePage;
+import com.automation.pages.interfaces.HomePage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,36 +13,36 @@ import java.util.List;
 
 public class AndroidHomePage extends BasePage implements HomePage {
 
-    @FindBy(xpath = "(//android.widget.TextView[@text=\" Date \"])[1]")
+    @FindBy(xpath = "(//android.widget.TextView[@text=' Date '])[1]")
     WebElement pickupDateElement;
 
-    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"M\"]/preceding-sibling::android.widget.TextView")
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='M']/preceding-sibling::android.widget.TextView")
     List<WebElement> monthYear;
 
     @FindBy(xpath = "(//com.horcrux.svg.SvgView)[2]")
     WebElement nextBtn;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"SEARCH\"]")
+    @FindBy(xpath = "//android.widget.TextView[@text='SEARCH']")
     WebElement searchBtn;
 
-    @FindBy(xpath = "//android.widget.EditText[@text=\"Select city to book your ride\"]")
+    @FindBy(xpath = "//android.widget.EditText[@text='Select city to book your ride']")
     WebElement locationSearchField;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"SKIP\"]")
+    @FindBy(xpath = "//android.widget.TextView[@text='SKIP']")
     WebElement skipBtn;
 
-    @FindBy(xpath = "//android.view.View[@content-desc=\"MENU\"]")
+    @FindBy(xpath = "//android.view.View[@content-desc='MENU']")
     WebElement menuIcon;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"Book Now, Ride Anywhere\"]/../../preceding-sibling::android.view.ViewGroup//android.widget.TextView")
+    @FindBy(xpath = "//android.widget.TextView[@text='Book Now, Ride Anywhere']/../../preceding-sibling::android.view.ViewGroup//android.widget.TextView")
     WebElement locationBtn;
 
-    @FindBy(xpath = "//android.view.View[@content-desc=\"TARIFFS\"]")
+    @FindBy(xpath = "//android.view.View[@content-desc='TARIFFS']")
     WebElement tariffIcon;
 
-    String dateXpath="//android.widget.TextView[@text=\"%s\"]";
-    String timeXpath="//android.widget.TextView[@text=\"%s\"]";
-    String locationXpath="//android.view.ViewGroup[@content-desc=\"%s\"]/android.view.ViewGroup/android.view.ViewGroup";
+    String dateXpath="//android.widget.TextView[@text='%s']";
+    String timeXpath="//android.widget.TextView[@text='%s']";
+    String locationXpath="//android.view.ViewGroup[@content-desc='%s']/android.view.ViewGroup/android.view.ViewGroup";
 
     @Override
     public void openApplication(){

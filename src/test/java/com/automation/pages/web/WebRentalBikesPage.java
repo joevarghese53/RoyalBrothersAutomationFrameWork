@@ -1,7 +1,7 @@
 package com.automation.pages.web;
 
 import com.automation.pages.common.BasePage;
-import com.automation.pages.ui.RentalBikesPage;
+import com.automation.pages.interfaces.RentalBikesPage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -28,25 +28,25 @@ public class WebRentalBikesPage extends BasePage implements RentalBikesPage {
     @FindBy(xpath = "//button[text()='Apply filter']")
     WebElement applyFilterBtn;
 
-    @FindBy(xpath = "//input[@placeholder=\"Search Bike Model\"]")
+    @FindBy(xpath = "//input[@placeholder='Search Bike Model']")
     WebElement modelSearchBox;
 
-    @FindBy(xpath = "//input[@placeholder=\"Search Location\"]")
+    @FindBy(xpath = "//input[@placeholder='Search Location']")
     WebElement locationSearchBox;
 
-    @FindBy(xpath = "(//input[@value=\"Location\"])[1]")
+    @FindBy(xpath = "(//input[@value='Location'])[1]")
     WebElement showLocationsBtn;
 
-    @FindBy(xpath = "//li[text()=\"Fully Available\"]/following-sibling::li")
+    @FindBy(xpath = "//li[text()='Fully Available']/following-sibling::li")
     WebElement availableLocation;
 
-    @FindBy(xpath = "//label[@for=\"price_low_to_high\"]")
+    @FindBy(xpath = "//label[@for='price_low_to_high']")
     WebElement lowToHighOption;
 
-    @FindBy(xpath = "//label[@for=\"price_high_to_low\"]")
+    @FindBy(xpath = "//label[@for='price_high_to_low']")
     WebElement highToLowOption;
 
-    String OptionXpath = "//div[not(contains(@class,\"mobile\"))]/ul//label[contains(normalize-space(.), '%s')]";
+    String OptionXpath = "//div[not(contains(@class,'mobile'))]/ul//label[contains(normalize-space(.), '%s')]";
 
     Actions actions = new Actions(driver);
 

@@ -1,7 +1,7 @@
 package com.automation.pages.web;
 
 import com.automation.pages.common.BasePage;
-import com.automation.pages.ui.OtpSubmissionPage;
+import com.automation.pages.interfaces.OtpSubmissionPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
