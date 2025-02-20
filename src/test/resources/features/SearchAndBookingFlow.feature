@@ -12,7 +12,7 @@ Feature: Verify an End To End scenario
     Then verify the user is on the rental bikes page
     When user clicks the pickup location of the first available bike
     And selects the first available location
-    And click book now
+    And user clicks book now
     Then verify user is on login page
     When user enters the mobile number "phone.number" and clicks get otp
     Then verify the otp page is displayed

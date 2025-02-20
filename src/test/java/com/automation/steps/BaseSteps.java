@@ -1,7 +1,7 @@
 package com.automation.steps;
 
 import com.automation.pages.android.*;
-import com.automation.pages.ui.*;
+import com.automation.pages.interfaces.*;
 import com.automation.pages.web.*;
 
 public class BaseSteps {
@@ -18,6 +18,7 @@ public class BaseSteps {
     RbProductPage rbProductPage;
     SelectedProductPage selectedProductPage;
     CheckoutPage checkoutPage;
+    TariffPage tariffPage;
 
     public BaseSteps() {
         if (System.getProperty("platform").equals("web")) {
@@ -27,6 +28,7 @@ public class BaseSteps {
             rentalBikesPage = new WebRentalBikesPage();
             summaryPage = new WebSummaryPage();
             profilePage = new WebProfilePage();
+            tariffPage = new WebTariffPage();
             chatPage = new WebChatPage();
             rbProductPage = new WebRbProductPage();
             selectedProductPage = new WebSelectedProductPage();
@@ -42,6 +44,7 @@ public class BaseSteps {
             profilePage = new AndroidProfilePage();
             helpAndSupportPage = new AndroidHelpAndSupportPage();
             chatPage = new AndroidChatPage();
+            tariffPage = new AndroidTariffsPage();
         }
     }
 }

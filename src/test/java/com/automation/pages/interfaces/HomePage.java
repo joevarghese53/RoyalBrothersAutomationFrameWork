@@ -1,4 +1,4 @@
-package com.automation.pages.ui;
+package com.automation.pages.interfaces;
 
 public interface HomePage {
 
@@ -27,6 +27,8 @@ public interface HomePage {
     boolean verifyUserIsLoggedOut();
 
     void clickProfileButton();
+
+    void clickOnTariffsIcon();
 
     void clickChatBot();
 

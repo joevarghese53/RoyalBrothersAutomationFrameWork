@@ -1,7 +1,5 @@
 package com.automation.steps;
 
-import com.automation.pages.android.AndroidRentalBikesPage;
-import com.automation.pages.ui.RentalBikesPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,8 +18,8 @@ public class RentalBikeSteps extends BaseSteps {
         rentalBikesPage.selectPickupLoc();
     }
 
-    @And("click book now")
-    public void clickBookNow() {
+    @And("user clicks book now")
+    public void userClicksBookNow() {
         rentalBikesPage.clickBookNow();
     }
 
@@ -35,8 +33,8 @@ public class RentalBikeSteps extends BaseSteps {
         rentalBikesPage.clickOnFilterAndSortBtn();
     }
 
-    @And("applies filter {string} with option {string}")
-    public void appliesFilterWithOption(String filter, String option) {
+    @And("user applies filter {string} with option {string}")
+    public void userAppliesFilterWithOption(String filter, String option) {
         rentalBikesPage.applyFilter(filter, option);
     }
 
@@ -45,13 +43,18 @@ public class RentalBikeSteps extends BaseSteps {
         Assert.assertTrue(rentalBikesPage.verifyFilterApplied(filer, option));
     }
 
-    @And("applies sorting with {string}")
-    public void appliesSortingWith(String option) {
+    @And("user applies sorting with {string}")
+    public void userAppliesSortingWith(String option) {
         rentalBikesPage.applySort(option);
     }
 
     @Then("verify items are sorted according to {string}")
     public void verifyItemsAreSortedAccordingTo(String option) {
         Assert.assertTrue(rentalBikesPage.verifySortApplied(option));
+    }
+
+    @And("verify price is displayed according to tariff")
+    public void verifyPriceIsDisplayedAccordingToTariff() {
+        Assert.assertTrue(rentalBikesPage.verifyPriceIsDisplayedAccordingToTariff());
     }
 }

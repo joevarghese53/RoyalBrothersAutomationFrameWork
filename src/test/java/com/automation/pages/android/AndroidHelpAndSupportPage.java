@@ -1,13 +1,13 @@
 package com.automation.pages.android;
 
 import com.automation.pages.common.BasePage;
-import com.automation.pages.ui.HelpAndSupportPage;
+import com.automation.pages.interfaces.HelpAndSupportPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AndroidHelpAndSupportPage extends BasePage implements HelpAndSupportPage {
 
-    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"Chat With Us\"]")
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='Chat With Us']")
     WebElement chatWithUsBtn;
 
     @Override

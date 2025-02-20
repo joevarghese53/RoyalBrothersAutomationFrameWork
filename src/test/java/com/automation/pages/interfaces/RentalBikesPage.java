@@ -1,4 +1,4 @@
-package com.automation.pages.ui;
+package com.automation.pages.interfaces;
 
 public interface RentalBikesPage {
 
@@ -19,4 +19,6 @@ public interface RentalBikesPage {
     void applySort(String option);
 
     boolean verifySortApplied(String option);
+
+    boolean verifyPriceIsDisplayedAccordingToTariff();
 }

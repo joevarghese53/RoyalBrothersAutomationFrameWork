@@ -1,10 +1,9 @@
 package com.automation.pages.web;
 
 import com.automation.pages.common.BasePage;
-import com.automation.pages.ui.HomePage;
+import com.automation.pages.interfaces.HomePage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -19,10 +18,10 @@ public class WebHomePage extends BasePage implements HomePage {
 
     String locationXpath="//p[text()=' %s']";
 
-    @FindBy(xpath = "//a[contains(@class,\"current-city\")]")
+    @FindBy(xpath = "//a[contains(@class,'current-city')]")
     WebElement locationBtn;
 
-    @FindBy(xpath = "//a[contains(@class,\"current-city\")]/span")
+    @FindBy(xpath = "//a[contains(@class,'current-city')]/span")
     WebElement location;
 
     @FindBy(xpath = "//div[@aria-hidden='false']//div[@class='picker__month']")
@@ -43,6 +42,13 @@ public class WebHomePage extends BasePage implements HomePage {
     @FindBy(xpath = "//img[@alt='User Profile']/following-sibling::p")
     WebElement userName;
 
+    @FindBy(xpath = "//ul[@id='nav-mobile']//a[text()='Tariff']")
+    WebElement tariffIcon;
+
+
+
+//    @FindBy(xpath = "//li[@class='logout-button']")
+//    WebElement logoutBtn;
     @FindBy(id = "widget-open")
     WebElement chatBotBtn;
 
@@ -82,8 +88,9 @@ public class WebHomePage extends BasePage implements HomePage {
 
     @Override
     public void enterDateAndTime(String pDate, String pTime, String dDate, String dTime) {
-
-        actions.moveToElement(searchBtn).perform();
+        if (isDisplayed(searchBtn)) {
+            actions.moveToElement(searchBtn).perform();
+        }
         pickupDateElement.click();
 
         setDateAndTime(pDate, pTime);
@@ -99,7 +106,7 @@ public class WebHomePage extends BasePage implements HomePage {
         WebElement dateElt=driver.findElement(By.xpath(String.format(dateXpath,ConfigReader.getConfigValue(date).split(" ")[0])));
         dateElt.click();
 
-        String timeConfig=null;
+        String timeConfig;
         if(ConfigReader.getConfigValue(time).charAt(0)=='0') {
             timeConfig =ConfigReader.getConfigValue(time).replaceFirst("0","");
         }
@@ -160,6 +167,11 @@ public class WebHomePage extends BasePage implements HomePage {
         pause(2);
         WebElement userProfileBtn=driver.findElement(By.xpath("//li[@class='user-profile-button']"));
         actions.moveToElement(userProfileBtn).pause(1).click().build().perform();
+    }
+
+    @Override
+    public void clickOnTariffsIcon() {
+        tariffIcon.click();
     }
 
     @Override

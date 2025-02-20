@@ -1,4 +1,4 @@
-package com.automation.pages.ui;
+package com.automation.pages.interfaces;
 
 public interface LoginPage {
 

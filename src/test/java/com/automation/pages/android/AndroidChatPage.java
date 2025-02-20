@@ -1,25 +1,25 @@
 package com.automation.pages.android;
 
 import com.automation.pages.common.BasePage;
-import com.automation.pages.ui.ChatPage;
+import com.automation.pages.interfaces.ChatPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AndroidChatPage extends BasePage implements ChatPage {
 
-    @FindBy(xpath = "//android.widget.ListView[@resource-id=\"chat-container\"]//android.widget.TextView")
+    @FindBy(xpath = "//android.widget.ListView[@resource-id='chat-container']//android.widget.TextView")
     WebElement welcomeBotMsg;
 
-    @FindBy(xpath = "//android.widget.EditText[@resource-id=\"post-message\"]")
+    @FindBy(xpath = "//android.widget.EditText[@resource-id='post-message']")
     WebElement yourMsgBox;
 
-    @FindBy(xpath = "//android.widget.Button[@resource-id=\"widgetSendButton\"]")
+    @FindBy(xpath = "//android.widget.Button[@resource-id='widgetSendButton']")
     WebElement sndButton;
 
-    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"room__msg_\" and @text=\"Hi\"]")
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='room__msg_' and @text='Hi']")
     WebElement userMsg;
 
-    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"room__msg_\"]/../following-sibling::android.view.View")
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='room__msg_']/../following-sibling::android.view.View")
     WebElement botResponse;
 
     @Override

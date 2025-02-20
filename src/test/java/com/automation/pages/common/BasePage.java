@@ -12,8 +12,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class BasePage {
 
@@ -127,4 +131,36 @@ public class BasePage {
         Actions actions = new Actions(driver);
         actions.pause(Duration.ofSeconds(sec)).build().perform();
     }
+
+    public String getFormattedDate(String expectedFormat, String date, String currentDateFormat) {
+        try {
+            SimpleDateFormat currentFormatter = new SimpleDateFormat(currentDateFormat);
+            Date dateObject = currentFormatter.parse(date);
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(dateObject);
+
+            SimpleDateFormat expectedFormatter = new SimpleDateFormat(expectedFormat);
+            return expectedFormatter.format(calendar.getTime());
+        } catch (Exception e) {
+            throw new RuntimeException("Invalid date format " + expectedFormat);
+        }
+    }
+
+    public static long calculateTotalHours(String pickUpDate, String pickUpTime, String dropOffDate, String dropOffTime) {
+        try {
+            String format = "dd MMM yyyy hh:mm a";
+            SimpleDateFormat formatter = new SimpleDateFormat(format);
+
+            Date pickUpDateTime = formatter.parse(pickUpDate + " " + pickUpTime);
+            Date dropOffDateTime = formatter.parse(dropOffDate + " " + dropOffTime);
+
+            long diffInMillis = dropOffDateTime.getTime() - pickUpDateTime.getTime();
+            return TimeUnit.MILLISECONDS.toHours(diffInMillis);
+        } catch (Exception e) {
+            throw new RuntimeException("Error parsing date/time", e);
+        }
+    }
 }
+
+
