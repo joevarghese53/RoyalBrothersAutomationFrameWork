@@ -46,10 +46,14 @@ public class WebHomePage extends BasePage implements HomePage {
     @FindBy(id = "widget-open")
     WebElement chatBotBtn;
 
+    @FindBy(xpath = "//*[@id=\"svg-menu-container\"]/*[local-name()='use']")
+    WebElement hamburgerMenu;
+
+    @FindBy(xpath = "//ul[@id='slide-out']//a[contains(text(),'Store by RB')]")
+    WebElement rbStoreOpt;
+
     String dateXpath="//div[@aria-hidden='false']//td/div[text()='%s']";
     String timeXpath="//div[@aria-hidden='false']//li[text()='%s']";
-
-    Actions actions = new Actions(driver);
 
     @Override
     public void openApplication() {
@@ -161,5 +165,11 @@ public class WebHomePage extends BasePage implements HomePage {
     @Override
     public void clickChatBot() {
         chatBotBtn.click();
+    }
+
+    @Override
+    public void navigateToRbStore() {
+        hamburgerMenu.click();
+        rbStoreOpt.click();
     }
 }

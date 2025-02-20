@@ -145,4 +145,9 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @Override
     public void clickChatBot() {}
 
+    @Override
+    public void navigateToRbStore() {
+
+    }
+
 }

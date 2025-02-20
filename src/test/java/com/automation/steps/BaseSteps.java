@@ -15,6 +15,9 @@ public class BaseSteps {
     ProfilePage profilePage;
     HelpAndSupportPage helpAndSupportPage;
     ChatPage chatPage;
+    RbProductPage rbProductPage;
+    SelectedProductPage selectedProductPage;
+    CheckoutPage checkoutPage;
 
     public BaseSteps() {
         if (System.getProperty("platform").equals("web")) {
@@ -25,6 +28,10 @@ public class BaseSteps {
             summaryPage = new WebSummaryPage();
             profilePage = new WebProfilePage();
             chatPage = new WebChatPage();
+            rbProductPage = new WebRbProductPage();
+            selectedProductPage = new WebSelectedProductPage();
+            checkoutPage = new WebCheckoutPage();
+
         } else {
             homePage = new AndroidHomePage();
             loginPage = new AndroidLoginPage();

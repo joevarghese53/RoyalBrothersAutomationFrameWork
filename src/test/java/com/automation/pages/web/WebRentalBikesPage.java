@@ -24,7 +24,6 @@ public class WebRentalBikesPage extends BasePage implements RentalBikesPage {
     @FindBy(xpath = "//button[text()='Apply filter']")
     WebElement applyFilterBtn;
 
-    Actions actions=new Actions(driver);
 
     @Override
     public void selectBike() {

@@ -8,7 +8,6 @@ import org.junit.Assert;
 
 public class HomeSteps extends BaseSteps {
 
-
     @Given("user opens website or application")
     public void userOpensWebsiteOrApplication() {
         homePage.openApplication();
@@ -54,5 +53,10 @@ public class HomeSteps extends BaseSteps {
     @When("user clicks the chatbot option")
     public void userClicksTheChatbotOption() {
         homePage.clickChatBot();
+    }
+
+    @When("user navigates to RB products page")
+    public void userNavigatesToRBProductsPage() {
+        homePage.navigateToRbStore();
     }
 }
