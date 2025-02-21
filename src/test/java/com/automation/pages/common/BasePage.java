@@ -1,6 +1,7 @@
 package com.automation.pages.common;
 
 import com.automation.utils.DriverManager;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +25,7 @@ public class BasePage {
     protected static WebDriver driver;
     protected WebDriverWait wait;
     public Actions actions;
+
     public BasePage() {
         driver = DriverManager.getDriver();
         PageFactory.initElements(driver, this);
@@ -96,8 +98,19 @@ public class BasePage {
         Sequence sequence = new Sequence(finger1, 1)
                 .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY))
                 .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
-                .addAction(finger1.createPointerMove(Duration.ofSeconds(2), PointerInput.Origin.viewport(), endX, endY)).
-                addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+                .addAction(finger1.createPointerMove(Duration.ofSeconds(2), PointerInput.Origin.viewport(), endX, endY))
+                .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        ((AndroidDriver) driver).perform(Collections.singletonList(sequence));
+
+        pause(1);
+    }
+
+    public void clickByOffset(int X, int Y) {
+        PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
+        Sequence sequence = new Sequence(finger1, 1)
+                .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), X, Y))
+                .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         ((AndroidDriver) driver).perform(Collections.singletonList(sequence));
 
         pause(1);

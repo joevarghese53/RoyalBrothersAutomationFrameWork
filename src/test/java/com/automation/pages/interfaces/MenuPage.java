@@ -2,7 +2,7 @@ package com.automation.pages.interfaces;
 
 public interface MenuPage {
 
-    void clickOnLoginButton();
+    void clickOnLogInOrSignUpButton();
 
     boolean isUserNameDisplayed();
 
@@ -13,4 +13,5 @@ public interface MenuPage {
     void clickProfileButton();
 
     void clickHelp();
+
 }

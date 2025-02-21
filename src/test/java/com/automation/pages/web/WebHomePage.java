@@ -5,7 +5,6 @@ import com.automation.pages.interfaces.HomePage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class WebHomePage extends BasePage implements HomePage {
@@ -39,6 +38,9 @@ public class WebHomePage extends BasePage implements HomePage {
     @FindBy(xpath = "//a[text()='Login']")
     WebElement loginBtn;
 
+    @FindBy(xpath = "//a[text()='Sign up']")
+    WebElement signUpBtn;
+
     @FindBy(xpath = "//img[@alt='User Profile']/following-sibling::p")
     WebElement userName;
 
@@ -69,6 +71,7 @@ public class WebHomePage extends BasePage implements HomePage {
     @Override
     public void enterLocation(String loc) {
         WebElement location2;
+        pause(2);
         if(loc.equals("booking.city")) {
             locationSearchField.sendKeys(ConfigReader.getConfigValue(loc));
             location2=driver.findElement(By.xpath(String.format(locationXpath,ConfigReader.getConfigValue(loc))));
@@ -139,8 +142,13 @@ public class WebHomePage extends BasePage implements HomePage {
     }
 
     @Override
-    public void clickOnLoginButton() {
-        loginBtn.click();
+    public void clickOnLogInOrSignUpButton(String option) {
+        pause(2);
+        if (option.equals("Login")){
+            loginBtn.click();
+        } else if (option.equals("Sign up")){
+            signUpBtn.click();
+        }
     }
 
     @Override

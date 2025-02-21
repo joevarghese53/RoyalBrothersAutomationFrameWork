@@ -5,13 +5,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class MenuSteps extends BaseSteps{
+public class MenuSteps extends BaseSteps {
     @Then("verify user is logged out")
     public void verifyUserIsLoggedOut() {
         if (System.getProperty("platform").equals("mobile")) {
             Assert.assertTrue(menuPage.verifyUserIsLoggedOut());
-        }
-        else{
+        } else {
             Assert.assertTrue(homePage.verifyUserIsLoggedOut());
         }
     }
@@ -20,19 +19,8 @@ public class MenuSteps extends BaseSteps{
     public void verifyUsernameIsDisplayedInProfileSection() {
         if (System.getProperty("platform").equals("mobile")) {
             Assert.assertTrue(menuPage.isUserNameDisplayed());
-        }
-        else{
+        } else {
             Assert.assertTrue(homePage.isUserNameDisplayed());
-        }
-    }
-
-    @And("user clicks on login button")
-    public void UserClicksOnLoginButton() {
-        if (System.getProperty("platform").equals("mobile")) {
-            menuPage.clickOnLoginButton();
-        }
-        else{
-            homePage.clickOnLoginButton();
         }
     }
 
@@ -40,8 +28,7 @@ public class MenuSteps extends BaseSteps{
     public void userClicksOnLogoutButton() {
         if (System.getProperty("platform").equals("mobile")) {
             menuPage.clickOnLogoutButton();
-        }
-        else{
+        } else {
             homePage.clickOnLogoutButton();
         }
     }
@@ -50,8 +37,7 @@ public class MenuSteps extends BaseSteps{
     public void userClicksOnViewProfileButton() {
         if (System.getProperty("platform").equals("mobile")) {
             menuPage.clickProfileButton();
-        }
-        else{
+        } else {
             homePage.clickProfileButton();
         }
     }
@@ -61,4 +47,12 @@ public class MenuSteps extends BaseSteps{
         menuPage.clickHelp();
     }
 
+    @And("user clicks on {string} button")
+    public void userClicksOnButton(String option) {
+        if (System.getProperty("platform").equals("mobile")) {
+            menuPage.clickOnLogInOrSignUpButton();
+        } else {
+            homePage.clickOnLogInOrSignUpButton(option);
+        }
+    }
 }

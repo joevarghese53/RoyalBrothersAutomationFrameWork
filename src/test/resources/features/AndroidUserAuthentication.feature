@@ -8,7 +8,7 @@ Feature: Validate user authentication functionality
   @android
   Scenario: Successful login with valid credentials
     When user navigates to menu page
-    And user clicks on login button
+    And user clicks on "Login" button
     Then verify user is on login page
     When user enters the mobile number "phone.number" and clicks get otp
     Then verify the otp page is displayed
@@ -20,7 +20,7 @@ Feature: Validate user authentication functionality
   @android
   Scenario Outline: Unsuccessful login with invalid credentials
     When user navigates to menu page
-    And user clicks on login button
+    And user clicks on "Login" button
     Then verify user is on login page
     When user enters the mobile number "<phone.number>" and clicks get otp
     Then verify the error message is displayed
@@ -33,7 +33,7 @@ Feature: Validate user authentication functionality
   @android
   Scenario: Successful logout after login
     When user navigates to menu page
-    And user clicks on login button
+    And user clicks on "Login" button
     Then verify user is on login page
     When user enters the mobile number "phone.number" and clicks get otp
     And user enters the otp and clicks submit
