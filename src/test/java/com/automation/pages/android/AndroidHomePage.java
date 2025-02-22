@@ -40,6 +40,9 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @FindBy(xpath = "//android.view.View[@content-desc='TARIFFS']")
     WebElement tariffIcon;
 
+    @FindBy(xpath = "//android.widget.TextView[@text=\"RB Store\"]/following-sibling::android.view.ViewGroup/android.widget.TextView[@text=\"VIEW ALL\"]")
+    WebElement rbStoreViewAllBtn;
+
     String dateXpath="//android.widget.TextView[@text='%s']";
     String timeXpath="//android.widget.TextView[@text='%s']";
     String locationXpath="//android.view.ViewGroup[@content-desc='%s']/android.view.ViewGroup/android.view.ViewGroup";
@@ -150,7 +153,10 @@ public class AndroidHomePage extends BasePage implements HomePage {
 
     @Override
     public void navigateToRbStore() {
-
+        while(!isDisplayed(rbStoreViewAllBtn)){
+            scroll();
+        }
+        rbStoreViewAllBtn.click();
     }
 
     @Override

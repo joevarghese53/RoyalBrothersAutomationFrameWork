@@ -4,19 +4,15 @@ public interface SelectedProductPage {
 
     boolean isSelectedProdPageDisplayed(String prod);
 
-    void clickChooseOptionOfFirstProd();
+//    void clickChooseOptionOfFirstProd();
+//
+//    boolean isProductDrawerDisplayed();
+//
+//    void clickChooseOptionOfSecondProd();
 
-    boolean isProductDrawerDisplayed();
+//    void clickCheckout();
 
-    void clickAddToCart();
+    void clickFirstProduct();
 
-    boolean isCartDrawerDisplayed();
-
-    boolean isAddedProductInCart(String prod);
-
-    void closeCart();
-
-    void clickChooseOptionOfSecondProd();
-
-    void clickCheckout();
+    void clickSecondProduct();
 }

@@ -44,7 +44,7 @@ public class BasePage {
 
     public boolean isDisplayed(String xpath, String value) {
         try {
-            setImplicitWait(3);
+            setImplicitWait(10);
             WebElement ele = driver.findElement(By.xpath(String.format(xpath, value)));
             return ele.isDisplayed();
         } catch (Exception e) {

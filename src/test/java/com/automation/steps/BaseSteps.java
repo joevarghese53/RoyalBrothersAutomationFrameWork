@@ -19,6 +19,7 @@ public class BaseSteps {
     SelectedProductPage selectedProductPage;
     CheckoutPage checkoutPage;
     TariffPage tariffPage;
+    ProductPage productPage;
 
     public BaseSteps() {
         if (System.getProperty("platform").equals("web")) {
@@ -33,7 +34,7 @@ public class BaseSteps {
             rbProductPage = new WebRbProductPage();
             selectedProductPage = new WebSelectedProductPage();
             checkoutPage = new WebCheckoutPage();
-
+            productPage = new WebProductPage();
         } else {
             homePage = new AndroidHomePage();
             loginPage = new AndroidLoginPage();
@@ -45,6 +46,10 @@ public class BaseSteps {
             helpAndSupportPage = new AndroidHelpAndSupportPage();
             chatPage = new AndroidChatPage();
             tariffPage = new AndroidTariffsPage();
+            rbProductPage =new AndroidRbProductPage();
+            selectedProductPage = new AndroidSelectedProductPage();
+            productPage = new AndroidProductPage();
+            checkoutPage = new AndroidCheckoutPage();
         }
     }
 }

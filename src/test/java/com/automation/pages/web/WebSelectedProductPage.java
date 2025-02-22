@@ -1,7 +1,7 @@
 package com.automation.pages.web;
 
 import com.automation.pages.common.BasePage;
-import com.automation.pages.ui.SelectedProductPage;
+import com.automation.pages.interfaces.SelectedProductPage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,32 +12,11 @@ import java.util.List;
 
 public class WebSelectedProductPage extends BasePage implements SelectedProductPage {
 
-    @FindBy(xpath = "(//div[@class='card-wrapper'])[1]")
-    WebElement firstProd;
-
     @FindBy(xpath = "(//a[contains(@class,'card-information__text')])[1]")
     WebElement firstProdName;
 
-    @FindBy(xpath = "//quick-view-drawer/details[@class='menu-opening']//div[contains(@class,'product__info-wrapper')]")
-    WebElement prodDrawer;
-
-    @FindBy(xpath = "//quick-view-drawer/details[@class='menu-opening']//div[contains(@class,'product__info-wrapper')]//button[text()='Add to cart']")
-    WebElement addToCartBtn;
-
     @FindBy(xpath = "((//a[contains(@class,'card-information__text')])[1]/following-sibling::div[@class='price']//bdi)[1]")
     WebElement firstProdPrice;
-
-    @FindBy(xpath = "//button[@name='checkout']")
-    WebElement checkoutBtn;
-
-    @FindBy(xpath = "//cart-items//div[@class='product-content']")
-    List<WebElement> cartItems;
-
-    @FindBy(xpath = "//cart-drawer//drawer-close-button")
-    WebElement cartCloseBtn;
-
-    @FindBy(xpath = "(//div[@class='card-wrapper'])[2]")
-    WebElement secondProd;
 
     @FindBy(xpath = "(//a[contains(@class,'card-information__text')])[2]")
     WebElement secondProdName;
@@ -53,63 +32,50 @@ public class WebSelectedProductPage extends BasePage implements SelectedProductP
         return isDisplayed(prodHeading);
     }
 
+//    @Override
+//    public void clickChooseOptionOfFirstProd() {
+//        System.out.println(firstProdPrice.getText());
+//        ConfigReader.setConfigValue("first.prod.name",firstProdName.getText());
+//        ConfigReader.setConfigValue("first.prod.price", String.valueOf(Float.parseFloat(firstProdPrice.getText().trim().replace("Rs.",""))));
+//        WebElement chooseOpt=driver.findElement(By.xpath("(//quick-view-button)[1]"));
+//        actions.moveToElement(firstProd).pause(1).click(chooseOpt).build().perform();
+//    }
+
+//    @Override
+//    public boolean isProductDrawerDisplayed() {
+////        WebElement prodDrawer=driver.findElement(By.xpath("//quick-view-drawer/details[@class='menu-opening']//div[contains(@class,'product__info-wrapper')]"));
+//        waitUntilVisible(prodDrawer);
+//        return isDisplayed(prodDrawer);
+//    }
+
+
+
+//    @Override
+//    public void clickChooseOptionOfSecondProd() {
+//        System.out.println(secondProdPrice.getText());
+//        ConfigReader.setConfigValue("second.prod.name",secondProdName.getText());
+//        ConfigReader.setConfigValue("second.prod.price", String.valueOf(Float.parseFloat(secondProdPrice.getText().trim().replace("Rs.",""))));
+//        WebElement chooseOpt=driver.findElement(By.xpath("(//quick-view-button)[2]"));
+//        actions.moveToElement(secondProd).pause(1).click(chooseOpt).build().perform();
+//    }
+
+
+
     @Override
-    public void clickChooseOptionOfFirstProd() {
+    public void clickFirstProduct() {
         System.out.println(firstProdPrice.getText());
         ConfigReader.setConfigValue("first.prod.name",firstProdName.getText());
         ConfigReader.setConfigValue("first.prod.price", String.valueOf(Float.parseFloat(firstProdPrice.getText().trim().replace("Rs.",""))));
         WebElement chooseOpt=driver.findElement(By.xpath("(//quick-view-button)[1]"));
-        actions.moveToElement(firstProd).pause(1).click(chooseOpt).build().perform();
+        actions.moveToElement(firstProdName).click().build().perform();
     }
 
     @Override
-    public boolean isProductDrawerDisplayed() {
-//        WebElement prodDrawer=driver.findElement(By.xpath("//quick-view-drawer/details[@class='menu-opening']//div[contains(@class,'product__info-wrapper')]"));
-        waitUntilVisible(prodDrawer);
-        return isDisplayed(prodDrawer);
-    }
-
-    @Override
-    public void clickAddToCart() {
-//        WebElement addToCartBtn= driver.findElement(By.xpath("//button[text()='Add to cart']"));
-        addToCartBtn.click();
-    }
-
-    @Override
-    public boolean isCartDrawerDisplayed() {
-        waitUntilVisible(checkoutBtn);
-        System.out.println(checkoutBtn.getText());
-        return isDisplayed(checkoutBtn);
-    }
-
-    @Override
-    public boolean isAddedProductInCart(String prod) {
-        for(WebElement item:cartItems){
-            System.out.println(item.getText());
-            System.out.println(ConfigReader.getConfigValue(prod));
-            if(item.getText().equalsIgnoreCase(ConfigReader.getConfigValue(prod))){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public void closeCart() {
-        cartCloseBtn.click();
-    }
-
-    @Override
-    public void clickChooseOptionOfSecondProd() {
+    public void clickSecondProduct() {
         System.out.println(secondProdPrice.getText());
         ConfigReader.setConfigValue("second.prod.name",secondProdName.getText());
         ConfigReader.setConfigValue("second.prod.price", String.valueOf(Float.parseFloat(secondProdPrice.getText().trim().replace("Rs.",""))));
         WebElement chooseOpt=driver.findElement(By.xpath("(//quick-view-button)[2]"));
-        actions.moveToElement(secondProd).pause(1).click(chooseOpt).build().perform();
-    }
-
-    @Override
-    public void clickCheckout() {
-        checkoutBtn.click();
+        actions.moveToElement(secondProdName).click().build().perform();
     }
 }
