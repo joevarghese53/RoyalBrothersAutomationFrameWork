@@ -5,6 +5,7 @@ Feature: Chat Bot
     And user enters the location as "booking.city"
     Then verify user is on the home page
 
+  @android
   Scenario: Verify if chatbot is responding to user in android
     When user navigates to menu page
     And clicks help & support button
@@ -15,6 +16,7 @@ Feature: Chat Bot
     Then verify if the message has been sent
     And verify if the chat bot responded to the message
 
+  @web
   Scenario: Verify if chatbot is responding to user in web
     When user clicks the chatbot option
     Then verify the chat window is open

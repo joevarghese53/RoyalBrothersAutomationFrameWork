@@ -27,4 +27,8 @@ public class LoginSteps extends BaseSteps {
         Assert.assertTrue(loginPage.isErrorDisplayed());
     }
 
+    @When("user enters details {string} , {string} , {string} and {string} and clicks Sign Up")
+    public void userEntersDetailsAndAndClicksSignUp(String name, String email, String password, String number) {
+        loginPage.signUpWithDetails(name, email, password, number);
+    }
 }

@@ -23,8 +23,26 @@ public class WebLoginPage extends BasePage implements LoginPage {
     @FindBy(xpath = "//div[@id='login']//iframe")
     WebElement iframe;
 
+    @FindBy(xpath = "//div[@id='signup']//iframe")
+    WebElement signUpIframe;
+
     @FindBy(xpath = "//div[text()='Enter Valid Phone Number']")
     WebElement errorMsg;
+
+    @FindBy(id = "user_name")
+    WebElement usernameInputField;
+
+    @FindBy(id = "user_email")
+    WebElement emailInputField;
+
+    @FindBy(id = "signup_phone_no")
+    WebElement phoneNoInputField;
+
+    @FindBy(id = "user_password")
+    WebElement passwordInputField;
+
+    @FindBy(xpath = "//button[text()=\"Sign Up\"]")
+    WebElement signUpBtn;
 
     @Override
     public boolean isLoginPageDisplayed() {
@@ -39,16 +57,15 @@ public class WebLoginPage extends BasePage implements LoginPage {
     @Override
     public void enterNumber(String number) {
         loginTab.click();
-        if(!isValidInteger(number)) {
+        if (!isValidInteger(number)) {
             phoneNumberBox.sendKeys(ConfigReader.getConfigValue(number));
-        }
-        else{
+        } else {
             phoneNumberBox.sendKeys(number);
         }
 
         driver.switchTo().frame(iframe);
 
-        WebElement captcha= driver.findElement(By.xpath("//div[@class='recaptcha-checkbox-border']"));
+        WebElement captcha = driver.findElement(By.xpath("//div[@class='recaptcha-checkbox-border']"));
         captcha.click();
 
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='login']//iframe")));
@@ -60,13 +77,32 @@ public class WebLoginPage extends BasePage implements LoginPage {
         otpLoginBtn.click();
     }
 
+    @Override
+    public void signUpWithDetails(String name, String email, String password, String number) {
+        usernameInputField.sendKeys(ConfigReader.getConfigValue(name));
+        emailInputField.sendKeys(ConfigReader.getConfigValue(email));
+        phoneNoInputField.sendKeys(ConfigReader.getConfigValue(number));
+        passwordInputField.sendKeys(ConfigReader.getConfigValue(password));
+        driver.switchTo().frame(signUpIframe);
+
+        WebElement captcha = driver.findElement(By.xpath("//div[@class='recaptcha-checkbox-border']"));
+        actions.moveToElement(captcha).build().perform();
+        captcha.click();
+
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='login']//iframe")));
+        driver.switchTo().defaultContent();
+
+        actions.moveToElement(signUpBtn).build().perform();
+        signUpBtn.click();
+    }
+
     public boolean isValidInteger(String str) {
         System.out.println("inside");
         if (str == null) {
             return false;  // If it's not exactly 10 characters, return false
         }
 
-         try{
+        try {
             System.out.println("inside2");
             Long.parseLong(str); // Try to parse the string as an integer
             return true;  // If parsing succeeds, it's a valid integer

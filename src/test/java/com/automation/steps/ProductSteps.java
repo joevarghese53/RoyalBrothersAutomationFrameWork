@@ -36,4 +36,14 @@ public class ProductSteps extends BaseSteps{
     public void verifyIfTheProductPageIsDisplayed(String prod) {
         Assert.assertTrue(productPage.isProductPageDisplayed(prod));
     }
+
+    @When("user removes the product {string}")
+    public void userRemovesTheProduct(String prod) {
+        selectedProductPage.removeProduct(prod);
+    }
+
+    @Then("verify if the product {string} is removed")
+    public void verifyIfTheProductIsRemoved(String prod) {
+        Assert.assertFalse(selectedProductPage.isProductRemoved(prod));
+    }
 }

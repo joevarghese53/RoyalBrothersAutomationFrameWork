@@ -7,4 +7,6 @@ public interface LoginPage {
     boolean isErrorDisplayed();
 
     void enterNumber(String number);
+
+    void signUpWithDetails(String name, String email, String password, String number);
 }

@@ -7,7 +7,7 @@ Feature: Validate user authentication functionality
 
   @web
   Scenario: Successful login with valid credentials
-    When user clicks on login button
+    When user clicks on "Login" button
     Then verify user is on login page
     When user enters the mobile number "phone.number" and clicks get otp
     Then verify the otp page is displayed
@@ -18,7 +18,7 @@ Feature: Validate user authentication functionality
 
   @web
   Scenario Outline: Unsuccessful login with invalid credentials
-    When user clicks on login button
+    When user clicks on "Login" button
     Then verify user is on login page
     And user enters the mobile number "<phone.number>" and clicks get otp
     Then verify the error message is displayed
@@ -32,7 +32,7 @@ Feature: Validate user authentication functionality
 
   @web
   Scenario: Successful logout after login
-    When user clicks on login button
+    When user clicks on "Login" button
     Then verify user is on login page
     When user enters the mobile number "phone.number" and clicks get otp
     Then verify the otp page is displayed

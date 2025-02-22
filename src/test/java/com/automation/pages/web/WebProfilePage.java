@@ -54,4 +54,14 @@ public class WebProfilePage extends BasePage implements ProfilePage {
     public boolean isEmailUpdated(String email) {
         return emailTextBox.getText().equals(ConfigReader.getConfigValue(email));
     }
+
+    @Override
+    public void clickOnDeleteAccount() {
+
+    }
+
+    @Override
+    public boolean verifyAccountDeletedMessageIsDisplayed() {
+        return false;
+    }
 }

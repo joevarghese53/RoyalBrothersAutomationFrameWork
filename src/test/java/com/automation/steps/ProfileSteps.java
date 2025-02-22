@@ -31,4 +31,14 @@ public class ProfileSteps extends BaseSteps{
     public void verifyTheEmailBoxContainsTheUpdatedMailAddress(String mail) {
         Assert.assertTrue(profilePage.isEmailUpdated(mail));
     }
+
+    @When("user clicks on delete account")
+    public void userClicksOnDeleteAccount() {
+        profilePage.clickOnDeleteAccount();
+    }
+
+    @Then("verify account deleted message is displayed")
+    public void verifyAccountDeletedMessageIsDisplayed() {
+        Assert.assertTrue(profilePage.verifyAccountDeletedMessageIsDisplayed());
+    }
 }

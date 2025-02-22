@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
@@ -50,6 +51,12 @@ public class DriverManager {
     public static byte[] takeScreenshotAsInputStream(){
         TakesScreenshot ts = (TakesScreenshot) driver;
         return ts.getScreenshotAs(OutputType.BYTES);
+    }
+
+    public static ByteArrayInputStream takeScreenshotAsByteArrayInputStream(){
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        byte[] screenshot =  ts.getScreenshotAs(OutputType.BYTES);
+        return new ByteArrayInputStream(screenshot);
     }
 
     public static void takeScreenshotAsFile(){

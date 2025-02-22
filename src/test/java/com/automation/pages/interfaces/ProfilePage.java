@@ -10,4 +10,8 @@ public interface ProfilePage {
     boolean isSuccessMessageDisplayed();
 
     boolean isEmailUpdated(String email);
+
+    void clickOnDeleteAccount();
+
+    boolean verifyAccountDeletedMessageIsDisplayed();
 }

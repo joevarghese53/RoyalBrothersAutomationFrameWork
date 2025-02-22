@@ -132,7 +132,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
     }
 
     @Override
-    public void clickOnLoginButton() {}
+    public void clickOnLogInOrSignUpButton(String option) {}
 
     @Override
     public boolean isUserNameDisplayed() {return true;}

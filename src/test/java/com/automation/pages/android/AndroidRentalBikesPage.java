@@ -109,13 +109,13 @@ public class AndroidRentalBikesPage extends BasePage implements RentalBikesPage 
             scroll(bottomX, bottomY, topX, topY);
             float newPrice = Float.parseFloat(driver.findElement(By.xpath("//android.widget.TextView[@text='BOOK NOW']/preceding-sibling::android.widget.TextView")).getText().replace("₹", "").trim());
             if (option.equalsIgnoreCase("Low to High")) {
-                if (newPrice > price) {
+                if (newPrice >= price) {
                     price = newPrice;
                 } else {
                     return false;
                 }
             } else if (option.equalsIgnoreCase("High to Low")) {
-                if (newPrice < price) {
+                if (newPrice <= price) {
                     price = newPrice;
                 } else {
                     return false;

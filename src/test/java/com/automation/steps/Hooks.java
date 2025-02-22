@@ -6,21 +6,29 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
+import io.restassured.RestAssured;
 
 public class Hooks {
 
-    @Before
-    public void setUp() {
+    @Before("@web or @android")
+    public void setUpWebOrAndroid() {
         ConfigReader.initConfig();
         DriverManager.createDriver();
     }
 
+    @Before("@api")
+    public void setUpApi() {
+        ConfigReader.initConfig();
+        RestAssured.baseURI = "https://67b953c851192bd378dd21f1.mockapi.io/capstone";
+    }
+
     @After
     public void cleanUp(Scenario scenario) {
-        if (scenario.isFailed()) {
-            Allure.addAttachment("screenshot", DriverManager.takeScreenshotAsBase64());
-            scenario.attach(DriverManager.takeScreenshotAsBase64(), "image/png", "screenshot");
-        }
-//        DriverManager.getDriver().quit();
+//        if (scenario.isFailed()) {
+//            scenario.attach(DriverManager.takeScreenshotAsInputStream(), "image/png", "screenshot");
+//        }
+        scenario.attach(DriverManager.takeScreenshotAsInputStream(), "image/png", "screenshot");
+        DriverManager.getDriver().quit();
     }
 }
+

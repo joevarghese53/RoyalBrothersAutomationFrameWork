@@ -34,7 +34,7 @@ public class AndroidMenuPage extends BasePage implements MenuPage {
     WebElement helpBtn;
 
     @Override
-    public void clickOnLoginButton() {
+    public void clickOnLogInOrSignUpButton() {
         loginBtn.click();
     }
 

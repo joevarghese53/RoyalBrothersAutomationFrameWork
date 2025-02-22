@@ -18,6 +18,6 @@ public class AndroidHelpAndSupportPage extends BasePage implements HelpAndSuppor
     @Override
     public void clickChatWithUsBtn() {
         chatWithUsBtn.click();
-        chatWithUsBtn.click();
+//        chatWithUsBtn.click();
     }
 }

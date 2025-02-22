@@ -18,7 +18,7 @@ public interface HomePage {
 
     boolean verifyUpdatedLocation();
 
-    void clickOnLoginButton();
+    void clickOnLogInOrSignUpButton(String option);
 
     boolean isUserNameDisplayed();
 

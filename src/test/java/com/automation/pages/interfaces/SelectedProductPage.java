@@ -15,4 +15,8 @@ public interface SelectedProductPage {
     void clickFirstProduct();
 
     void clickSecondProduct();
+
+    void removeProduct(String prod);
+
+    boolean isProductRemoved(String prod);
 }
