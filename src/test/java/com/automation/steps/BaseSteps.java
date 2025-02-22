@@ -19,6 +19,7 @@ public class BaseSteps {
     SelectedProductPage selectedProductPage;
     CheckoutPage checkoutPage;
     TariffPage tariffPage;
+    ProductPage productPage;
     CreateAccountPage createAccountPage;
     VerifyAccountPage verifyAccountPage;
 
@@ -35,6 +36,7 @@ public class BaseSteps {
             rbProductPage = new WebRbProductPage();
             selectedProductPage = new WebSelectedProductPage();
             checkoutPage = new WebCheckoutPage();
+            productPage = new WebProductPage();
             verifyAccountPage = new WebVerifyAccountPage();
 
         } else {
@@ -48,6 +50,10 @@ public class BaseSteps {
             helpAndSupportPage = new AndroidHelpAndSupportPage();
             chatPage = new AndroidChatPage();
             tariffPage = new AndroidTariffsPage();
+            rbProductPage =new AndroidRbProductPage();
+            selectedProductPage = new AndroidSelectedProductPage();
+            productPage = new AndroidProductPage();
+            checkoutPage = new AndroidCheckoutPage();
             createAccountPage = new AndroidCreateAccountPage();
         }
     }

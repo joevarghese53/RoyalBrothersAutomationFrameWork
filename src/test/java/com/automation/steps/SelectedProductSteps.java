@@ -12,53 +12,22 @@ public class SelectedProductSteps extends BaseSteps{
         Assert.assertTrue(selectedProductPage.isSelectedProdPageDisplayed(prod));
     }
 
-    @When("user click choose options of the first product")
-    public void userClickChooseOptionsOfTheFirstProduct() {
-        selectedProductPage.clickChooseOptionOfFirstProd();
+
+//    @Then("verify if the product drawer is displayed")
+//    public void verifyIfTheProductDrawerIsDisplayed() {
+//        Assert.assertTrue(selectedProductPage.isProductDrawerDisplayed());
+//    }
+
+
+    @When("user click the first product")
+    public void userClickTheFirstProduct() {
+        selectedProductPage.clickFirstProduct();
     }
 
-    @Then("verify if the product drawer is displayed")
-    public void verifyIfTheProductDrawerIsDisplayed() {
-        Assert.assertTrue(selectedProductPage.isProductDrawerDisplayed());
+    @And("user click the second product")
+    public void userClickTheSecondProduct() {
+        selectedProductPage.clickSecondProduct();
     }
 
-    @When("user clicks add to cart")
-    public void userClicksAddToCart() {
-        selectedProductPage.clickAddToCart();
-    }
 
-    @Then("verify if the cart drawer is displayed")
-    public void verifyIfTheCartDrawerIsDisplayed() {
-        Assert.assertTrue(selectedProductPage.isCartDrawerDisplayed());
-    }
-
-    @When("user closes the cart drawer")
-    public void userClosesTheCartDrawer() {
-        selectedProductPage.closeCart();
-    }
-
-    @And("user click choose options of the second product")
-    public void userClickChooseOptionsOfTheSecondProduct() {selectedProductPage.clickChooseOptionOfSecondProd();
-
-    }
-
-    @When("user click checkout button")
-    public void userClickCheckoutButton() {
-        selectedProductPage.clickCheckout();
-    }
-
-    @And("verify if the added product {string} is displayed")
-    public void verifyIfTheAddedProductIsDisplayed(String prod) {
-        Assert.assertTrue((selectedProductPage.isAddedProductInCart(prod)));
-    }
-
-    @When("user removes the product {string}")
-    public void userRemovesTheProduct(String prod) {
-        selectedProductPage.removeProduct(prod);
-    }
-
-    @Then("verify if the product {string} is removed")
-    public void verifyIfTheProductIsRemoved(String prod) {
-        Assert.assertFalse(selectedProductPage.isProductRemoved(prod));
-    }
 }
