@@ -20,9 +20,10 @@ public class Hooks {
     public void setUpApi() {
         ConfigReader.initConfig();
         RestAssured.baseURI = "https://67b953c851192bd378dd21f1.mockapi.io/capstone";
+        RestAssured.useRelaxedHTTPSValidation();
     }
 
-    @After
+    @After("@web or @android")
     public void cleanUp(Scenario scenario) {
 //        if (scenario.isFailed()) {
 //            scenario.attach(DriverManager.takeScreenshotAsInputStream(), "image/png", "screenshot");
