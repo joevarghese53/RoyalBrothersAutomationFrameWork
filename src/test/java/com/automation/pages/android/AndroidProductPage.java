@@ -67,4 +67,14 @@ public class AndroidProductPage extends BasePage implements ProductPage {
     public void clickCheckout() {
         checkoutBtn.click();
     }
+
+    @Override
+    public void removeProduct(String prod) {
+
+    }
+
+    @Override
+    public boolean isProductRemoved(String prod) {
+        return false;
+    }
 }

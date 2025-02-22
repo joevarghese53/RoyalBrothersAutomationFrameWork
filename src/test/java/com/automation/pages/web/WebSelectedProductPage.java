@@ -26,10 +26,6 @@ public class WebSelectedProductPage extends BasePage implements SelectedProductP
 
     String productHeadingXpath="//h2[text()='%s']";
 
-    String productMinusBtn = "//a[text()='%s']/../following-sibling::div//button[@name='minus']";
-
-    String productName = "//a[text()='%s']";
-
     @Override
     public boolean isSelectedProdPageDisplayed(String prod) {
         WebElement prodHeading= driver.findElement(By.xpath(String.format(productHeadingXpath,prod)));
@@ -83,14 +79,6 @@ public class WebSelectedProductPage extends BasePage implements SelectedProductP
         actions.moveToElement(secondProdName).click().build().perform();
     }
 
-    @Override
-    public void removeProduct(String prod) {
-        driver.findElement(By.xpath(String.format(productMinusBtn,ConfigReader.getConfigValue(prod)))).click();
-    }
 
-    @Override
-    public boolean isProductRemoved(String prod) {
-        pause(3);
-        return isDisplayed(productName, ConfigReader.getConfigValue(prod));
-    }
+
 }

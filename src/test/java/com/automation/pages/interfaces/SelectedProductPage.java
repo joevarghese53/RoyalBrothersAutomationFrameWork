@@ -16,7 +16,4 @@ public interface SelectedProductPage {
 
     void clickSecondProduct();
 
-    void removeProduct(String prod);
-
-    boolean isProductRemoved(String prod);
 }

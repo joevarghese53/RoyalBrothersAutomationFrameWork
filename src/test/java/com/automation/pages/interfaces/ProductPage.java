@@ -14,4 +14,7 @@ public interface ProductPage {
 
     void clickCheckout();
 
+    void removeProduct(String prod);
+
+    boolean isProductRemoved(String prod);
 }
