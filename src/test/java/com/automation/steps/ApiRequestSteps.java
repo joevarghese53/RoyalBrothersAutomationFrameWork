@@ -42,4 +42,14 @@ public class ApiRequestSteps {
     public void verifyStatusCodeIs(int statusCode) {
         Assert.assertEquals(statusCode, RestAssuredUtils.getStatusCode());
     }
+
+    @When("user makes get request")
+    public void userMakesGetRequest() {
+        RestAssuredUtils.get();
+    }
+
+    @When("user makes put request")
+    public void userMakesPutRequest() {
+        RestAssuredUtils.put();
+    }
 }

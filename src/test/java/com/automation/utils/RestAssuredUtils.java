@@ -13,7 +13,7 @@ public class RestAssuredUtils {
     static String endPoint;
     static Response response;
     public static void setEndpoint(String endpoint){
-        endPoint = endpoint;
+        RestAssuredUtils.endPoint = endpoint;
     }
 
     public static void setHeader(String key, String value){

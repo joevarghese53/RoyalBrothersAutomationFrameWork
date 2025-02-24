@@ -19,7 +19,7 @@ public class Hooks {
     @Before("@api")
     public void setUpApi() {
         ConfigReader.initConfig();
-        RestAssured.baseURI = "https://67b953c851192bd378dd21f1.mockapi.io/capstone";
+        RestAssured.baseURI = "https://67bbefd1ed4861e07b389a45.mockapi.io/capstone";
         RestAssured.useRelaxedHTTPSValidation();
     }
 
