@@ -3,6 +3,7 @@ package com.automation.pages.android;
 import com.automation.pages.common.BasePage;
 import com.automation.pages.interfaces.SelectedProductPage;
 import com.automation.utils.ConfigReader;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -26,7 +27,8 @@ public class AndroidSelectedProductPage extends BasePage implements SelectedProd
     @FindBy(xpath = "(//android.widget.TextView[@text=\"CHOOSE OPTIONS\"])[2]/../preceding-sibling::android.widget.ListView//android.widget.TextView[2]")
     WebElement secondProdPrice;
 
-    String product="//android.widget.TextView[@text=\"%s\"]";
+    String product = "//android.widget.TextView[@text=\"%s\"]";
+
     @Override
     public boolean isSelectedProdPageDisplayed(String prod) {
         return isDisplayed(product,prod);
@@ -45,6 +47,7 @@ public class AndroidSelectedProductPage extends BasePage implements SelectedProd
         }
         ConfigReader.setConfigValue("first.prod.price", String.valueOf(Float.parseFloat(price.trim().replace("Rs.",""))));
 //        WebElement chooseOpt=driver.findElement(By.xpath("(//quick-view-button)[1]"));
+//        actions.moveToElement(firstProdName).build().perform();
         firstProd.click();
     }
 

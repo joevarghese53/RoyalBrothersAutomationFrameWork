@@ -80,7 +80,7 @@ Feature: Validating RB Store
     Then verify the checkout page is displayed
     And verify if the total price is correct
 
-    @android
+  @android
   Scenario: Verify user can add and remove products from cart in android
     When user navigates to RB products page
     Then verify the RB products page is displayed
