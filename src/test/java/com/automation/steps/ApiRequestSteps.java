@@ -52,4 +52,9 @@ public class ApiRequestSteps {
     public void userMakesPutRequest() {
         RestAssuredUtils.put();
     }
+
+    @And("verify json value of {string} is {string}")
+    public void verifyJsonValueOfIs(String jsonField, String JsonValue) {
+        Assert.assertTrue(RestAssuredUtils.getResponseFieldValue(jsonField).equalsIgnoreCase(JsonValue));
+    }
 }
