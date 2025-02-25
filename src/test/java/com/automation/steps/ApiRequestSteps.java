@@ -3,15 +3,10 @@ package com.automation.steps;
 import com.automation.pojo.CreateUserRequestPojo;
 import com.automation.utils.ConfigReader;
 import com.automation.utils.RestAssuredUtils;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
-
-import java.io.FileNotFoundException;
 
 public class ApiRequestSteps {
     @Given("user calls {string} endpoint")
@@ -38,10 +33,6 @@ public class ApiRequestSteps {
         RestAssuredUtils.post();
     }
 
-    @Then("verify status code is {int}")
-    public void verifyStatusCodeIs(int statusCode) {
-        Assert.assertEquals(statusCode, RestAssuredUtils.getStatusCode());
-    }
 
     @When("user makes get request")
     public void userMakesGetRequest() {
@@ -53,8 +44,8 @@ public class ApiRequestSteps {
         RestAssuredUtils.put();
     }
 
-    @And("verify json value of {string} is {string}")
-    public void verifyJsonValueOfIs(String jsonField, String JsonValue) {
-        Assert.assertTrue(RestAssuredUtils.getResponseFieldValue(jsonField).equalsIgnoreCase(JsonValue));
+    @And("user makes delete request")
+    public void userMakesDeleteRequest() {
+        RestAssuredUtils.delete();
     }
 }
