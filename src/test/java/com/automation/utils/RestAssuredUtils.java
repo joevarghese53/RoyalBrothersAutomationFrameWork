@@ -29,6 +29,7 @@ public class RestAssuredUtils {
         requestSpecification.body(body);
     }
 
+
     public static String getJsonDataFromFile(String fileName) throws FileNotFoundException {
         String filePath = "src/test/resources/data/";
         Scanner sc = new Scanner(new FileInputStream(filePath + fileName));

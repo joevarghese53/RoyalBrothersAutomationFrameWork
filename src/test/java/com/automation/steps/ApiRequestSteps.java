@@ -12,6 +12,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 import java.io.FileNotFoundException;
+import java.lang.reflect.Field;
 
 public class ApiRequestSteps {
     @Given("user calls {string} endpoint")
@@ -56,5 +57,21 @@ public class ApiRequestSteps {
     @And("verify json value of {string} is {string}")
     public void verifyJsonValueOfIs(String jsonField, String JsonValue) {
         Assert.assertTrue(RestAssuredUtils.getResponseFieldValue(jsonField).equalsIgnoreCase(JsonValue));
+    }
+
+    @And("user set request body from file {string} using pojo with {string} value {string}")
+    public void userSetRequestBodyFromFileUsingPojoWithValue(String filename, String fieldname, String value) throws Exception {
+        String body = RestAssuredUtils.getJsonDataFromFile(filename);
+        ObjectMapper objectMapper = new ObjectMapper();
+        CreateUserRequestPojo requestPojo = objectMapper.readValue(body, CreateUserRequestPojo.class);
+        Field field=CreateUserRequestPojo.class.getDeclaredField(fieldname);
+        field.setAccessible(true);
+        field.set(requestPojo,value);
+        RestAssuredUtils.setRequestBody(requestPojo);
+        ConfigReader.setObject("request.pojo", requestPojo);
+    }
+
+    @And("user set request body from file {string} setting {string} value {string}")
+    public void userSetRequestBodyFromFileSettingValue(String arg0, String arg1, String arg2) {
     }
 }
