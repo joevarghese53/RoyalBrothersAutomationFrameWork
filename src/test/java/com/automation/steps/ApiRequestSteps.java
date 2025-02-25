@@ -67,6 +67,7 @@ public class ApiRequestSteps {
     }
 
     @And("user set request body from file {string} setting {string} value {string}")
-    public void userSetRequestBodyFromFileSettingValue(String arg0, String arg1, String arg2) {
+    public void userSetRequestBodyFromFileSettingValue(String filename, String fieldname, String value) throws Exception {
+        RestAssuredUtils.setRequestBody(filename);
     }
 }

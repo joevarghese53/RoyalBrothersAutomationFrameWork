@@ -16,6 +16,9 @@ public class ApiResponseSteps {
         Response response = RestAssuredUtils.getResponse();
         CreateUserRequestPojo requestPojo = (CreateUserRequestPojo) ConfigReader.getObject("request_pojo");
         CreateUserResponsePojo response_pojo = response.as(CreateUserResponsePojo.class);
+        System.out.println(response_pojo);
+        System.out.println(requestPojo);
+//        Assert.assertTrue(response_pojo.equals(requestPojo));
         Assert.assertEquals(requestPojo.getName(), response_pojo.getName());
         Assert.assertEquals(requestPojo.getEmail(), response_pojo.getEmail());
         Assert.assertEquals(requestPojo.getAge(), response_pojo.getAge());
@@ -42,5 +45,10 @@ public class ApiResponseSteps {
     @And("verify response body has a field {string} as {string}")
     public void verifyResponseBodyHasAFieldAs(String jsonPath, String fieldValue) {
         Assert.assertEquals(fieldValue, RestAssuredUtils.getResponseFieldValue(jsonPath));
+    }
+
+    @Then("verify status code is not {int}")
+    public void verifyStatusCodeIsNot(int statusCode) {
+        Assert.assertNotEquals(statusCode, RestAssuredUtils.getStatusCode());
     }
 }
