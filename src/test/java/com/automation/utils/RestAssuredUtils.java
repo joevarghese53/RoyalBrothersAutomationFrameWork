@@ -13,6 +13,9 @@ public class RestAssuredUtils {
     static String endPoint;
     static Response response;
     public static void setEndpoint(String endpoint){
+        if (endpoint.contains("@id")){
+            endpoint = endpoint.replace("@id",ConfigReader.getConfigValue("user.id"));
+        }
         RestAssuredUtils.endPoint = endpoint;
     }
 

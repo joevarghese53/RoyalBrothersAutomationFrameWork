@@ -9,9 +9,11 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode
 @ToString
-public class CreateUserRequestPojo {
+public class CreateUserResponsePojo {
     String name;
     String email;
     double salary;
     int age;
+    long createdAt;
+    String id;
 }
