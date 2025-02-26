@@ -36,4 +36,4 @@ Feature: Profile and Account Management
     When user clicks on the edit icon of email section
     And user enters the email address "email.updated.address" and saves it
     Then verify the success message is displayed
-    And verify the email box contains the updated mail address "email.address"
+    And verify the email box contains the updated mail address "email.updated.address"
