@@ -1,0 +1,1217 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title></title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa bdd-report standard">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary"></span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Feb 26, 2025 04:57:39 pm</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('category-view')">
+<a id="nav-category" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-tag"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Feb 26, 2025 04:57:39 pm</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Feb 26, 2025 04:57:52 pm</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Features Passed</p>
+<h3>2</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Features Failed</p>
+<h3>1</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Features</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='66%'>
+<b>2</b> features passed
+</small>
+</div>
+<div>
+<small data-tooltip='33%'><b>1</b> features failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Scenarios</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='child-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='83%'><b>10</b> scenarios passed</small></div>
+<div>
+<small data-tooltip='16%'><b>2</b> scenarios failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Steps</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='grandchild-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='97%'><b>92</b> steps passed</small></div>
+<div>
+<small data-tooltip='2%'><b>2</b> steps failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"Verify user can perform end to end operations":4.624,"Negative api scenarios":0.897,"Verify user can perform CRUD operations":6.79
+};
+</script>
+<div class="row">
+<div class="col-lg-6 col-md-12 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>@api</td>
+<td>10</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>83.333%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="col-lg-6 col-md-12 sysenv-container">
+<div class="card">
+<div class="card-header"><p>System/Environment</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>QA AUTOMATION CLASSES</td>
+</tr>
+<tr>
+<td>build</td>
+<td>0.1.1</td>
+</tr>
+<tr>
+<td>os</td>
+<td>Windows</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 2,
+failParent: 1,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 10,
+failChild: 2,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 92,
+failGrandChild: 2,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+};
+</script><div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">@api</a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="pass" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify user can perform end to end operations</p>
+            <p class="text-sm">
+              <span>4:57:40 pm</span> / <span>00:00:04:624</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Verify user can perform end to end operations</h5>
+<span class='badge badge-success'>02.26.2025 4:57:40 pm</span>
+<span class='badge badge-danger'>02.26.2025 4:57:45 pm</span>
+<span class='badge badge-default'>00:00:04:624</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>verify user can perform end to end operations</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>Given user calls "/users" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setHeaderTo(java.lang.String,java.lang.String)">
+                <span>And set header "Content-Type" to "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setRequestBodyFromFileUsingPojo(java.lang.String)">
+                <span>And set request body from file "create-user.json" using pojo</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesPostRequest()">
+                <span>When user makes post request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIs(int)">
+                <span>Then verify status code is 201</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyResponseHasBodySameAsRequest()">
+                <span>And verify response has body same as request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyResponseHasSchemaSameAs(java.lang.String)">
+                <span>And verify response has schema same as "response-schema.json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.storeTheFromResponseInto(java.lang.String,java.lang.String)">
+                <span>And store the "id" from response into "user.id"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>When user calls "/users/{id}" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setsPathParamForAs(java.lang.String,java.lang.String)">
+                <span>And sets path param for "id" as "user.id"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesGetRequest()">
+                <span>And user makes get request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIs(int)">
+                <span>Then verify status code is 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyResponseBodyHasAFieldAs(java.lang.String,java.lang.String)">
+                <span>And verify response body has a field "name" as "Joe Varghese"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyResponseHasSchemaSameAs(java.lang.String)">
+                <span>And verify response has schema same as "response-schema.json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>When user calls "/users/{id}" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setsPathParamForAs(java.lang.String,java.lang.String)">
+                <span>And sets path param for "id" as "user.id"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setHeaderTo(java.lang.String,java.lang.String)">
+                <span>And set header "Content-Type" to "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setRequestBodyFromFileUsingPojo(java.lang.String)">
+                <span>And set request body from file "update-user.json" using pojo</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesPutRequest()">
+                <span>And user makes put request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIs(int)">
+                <span>Then verify status code is 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyResponseHasBodySameAsRequest()">
+                <span>And verify response has body same as request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyResponseHasSchemaSameAs(java.lang.String)">
+                <span>And verify response has schema same as "response-schema.json"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="26"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Negative api scenarios</p>
+            <p class="text-sm">
+              <span>4:57:45 pm</span> / <span>00:00:00:897</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Negative api scenarios</h5>
+<span class='badge badge-success'>02.26.2025 4:57:45 pm</span>
+<span class='badge badge-danger'>02.26.2025 4:57:46 pm</span>
+<span class='badge badge-default'>00:00:00:897</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=26</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="27"><span class="badge log fail-bg mr-2">Fail</span>verify user cannot perform create operations using invalid data</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>Given user calls "/users" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setHeaderTo(java.lang.String,java.lang.String)">
+                <span>And set header "Content-Type" to "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userSetInvalidRequestBodyFromFile(java.lang.String)">
+                <span>And user set invalid request body from file "invalid-user.json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesPostRequest()">
+                <span>When user makes post request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIsNot(int)">
+                <span>Then verify status code is not 201</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Values should be different. Actual: 201
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failEquals(Assert.java:185)
+	at org.junit.Assert.assertNotEquals(Assert.java:199)
+	at org.junit.Assert.assertNotEquals(Assert.java:211)
+	at com.automation.steps.ApiResponseSteps.verifyStatusCodeIsNot(ApiResponseSteps.java:52)
+	at ✽.verify status code is not 201(file:///C:/Users/291501/Documents/Projects/RoyalBrothersAutomationFramework/src/test/resources/features/APINegativeTests.feature:9)
+</textarea>
+      
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="34"><span class="badge log fail-bg mr-2">Fail</span>verify user cannot perform create operations without body</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>Given user calls "/users" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setHeaderTo(java.lang.String,java.lang.String)">
+                <span>And set header "Content-Type" to "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesPostRequest()">
+                <span>When user makes post request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIsNot(int)">
+                <span>Then verify status code is not 201</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Values should be different. Actual: 201
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failEquals(Assert.java:185)
+	at org.junit.Assert.assertNotEquals(Assert.java:199)
+	at org.junit.Assert.assertNotEquals(Assert.java:211)
+	at com.automation.steps.ApiResponseSteps.verifyStatusCodeIsNot(ApiResponseSteps.java:52)
+	at ✽.verify status code is not 201(file:///C:/Users/291501/Documents/Projects/RoyalBrothersAutomationFramework/src/test/resources/features/APINegativeTests.feature:16)
+</textarea>
+      
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="40"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify user can perform CRUD operations</p>
+            <p class="text-sm">
+              <span>4:57:46 pm</span> / <span>00:00:06:790</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Verify user can perform CRUD operations</h5>
+<span class='badge badge-success'>02.26.2025 4:57:46 pm</span>
+<span class='badge badge-danger'>02.26.2025 4:57:52 pm</span>
+<span class='badge badge-default'>00:00:06:790</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=40</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="41"><span class="badge log pass-bg mr-2">Pass</span>verify user can perform create operations</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>Given user calls "/users" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setHeaderTo(java.lang.String,java.lang.String)">
+                <span>And set header "Content-Type" to "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setRequestBodyFromFileUsingPojo(java.lang.String)">
+                <span>And set request body from file "create-user.json" using pojo</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesPostRequest()">
+                <span>When user makes post request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIs(int)">
+                <span>Then verify status code is 201</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyResponseHasBodySameAsRequest()">
+                <span>And verify response has body same as request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyResponseHasSchemaSameAs(java.lang.String)">
+                <span>And verify response has schema same as "response-schema.json"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="50"><span class="badge log pass-bg mr-2">Pass</span>verify user can perform update operations</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>Given user calls "/users" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesGetRequest()">
+                <span>When user makes get request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIs(int)">
+                <span>Then verify status code is 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.storeTheFromResponseInto(java.lang.String,java.lang.String)">
+                <span>And store the "id[0]" from response into "user.id"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>When user calls "/users/{id}" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setsPathParamForAs(java.lang.String,java.lang.String)">
+                <span>And sets path param for "id" as "user.id"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setHeaderTo(java.lang.String,java.lang.String)">
+                <span>And set header "Content-Type" to "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setRequestBodyFromFileUsingPojo(java.lang.String)">
+                <span>And set request body from file "update-user.json" using pojo</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesPutRequest()">
+                <span>When user makes put request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIs(int)">
+                <span>Then verify status code is 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyResponseHasBodySameAsRequest()">
+                <span>And verify response has body same as request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyResponseHasSchemaSameAs(java.lang.String)">
+                <span>And verify response has schema same as "response-schema.json"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="64"><span class="badge log pass-bg mr-2">Pass</span>verify user can perform get operations</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>Given user calls "/users/13" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesGetRequest()">
+                <span>When user makes get request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIs(int)">
+                <span>Then verify status code is 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyResponseHasSchemaSameAs(java.lang.String)">
+                <span>And verify response has schema same as "response-schema.json"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="70"><span class="badge log pass-bg mr-2">Pass</span>Verify if the custom field is added correctly</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="71"><span class="badge log pass-bg mr-2">Pass</span>Verify if the custom field is added correctly</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user calls "/users" endpoint</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And set header "Content-Type" to "application/json"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user set request body from file "create-user.json" using pojo with "name" value "joe"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user makes post request</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then verify status code is 201</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And verify response body has a field "name" as "joe"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="79"><span class="badge log pass-bg mr-2">Pass</span>Verify if the custom field is added correctly</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user calls "/users" endpoint</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And set header "Content-Type" to "application/json"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user set request body from file "create-user.json" using pojo with "name" value "saravan"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user makes post request</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then verify status code is 201</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And verify response body has a field "name" as "saravan"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="87"><span class="badge log pass-bg mr-2">Pass</span>verify user can perform delete operation and verify it is deleted</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>Given user calls "/users" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setHeaderTo(java.lang.String,java.lang.String)">
+                <span>And set header "Content-Type" to "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setRequestBodyFromFileUsingPojo(java.lang.String)">
+                <span>And set request body from file "create-user.json" using pojo</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesPostRequest()">
+                <span>When user makes post request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.storeTheFromResponseInto(java.lang.String,java.lang.String)">
+                <span>And store the "id" from response into "user.id"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIs(int)">
+                <span>Then verify status code is 201</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>When user calls "/users/{id}" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setsPathParamForAs(java.lang.String,java.lang.String)">
+                <span>And sets path param for "id" as "user.id"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesDeleteRequest()">
+                <span>And user makes delete request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIs(int)">
+                <span>Then verify status code is 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>When user calls "/users/{id}" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setsPathParamForAs(java.lang.String,java.lang.String)">
+                <span>And sets path param for "id" as "user.id"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesGetRequest()">
+                <span>And user makes get request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIs(int)">
+                <span>Then verify status code is 404</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="103"><span class="badge log pass-bg mr-2">Pass</span>verify user cannot perform get operations using invalid id</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>Given user calls "/users/abcd" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setHeaderTo(java.lang.String,java.lang.String)">
+                <span>And set header "Content-Type" to "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesGetRequest()">
+                <span>When user makes get request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIs(int)">
+                <span>Then verify status code is 404</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="109"><span class="badge log pass-bg mr-2">Pass</span>verify user cannot perform Invalid HTTP Methods</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>Given user calls "/users/1" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setHeaderTo(java.lang.String,java.lang.String)">
+                <span>And set header "Content-Type" to "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setRequestBodyFromFileUsingPojo(java.lang.String)">
+                <span>And set request body from file "create-user.json" using pojo</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesPostRequest()">
+                <span>When user makes post request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIs(int)">
+                <span>Then verify status code is 400</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="116"><span class="badge log pass-bg mr-2">Pass</span>verify user cannot access invalid endpoints</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userCallsEndpoint(java.lang.String)">
+                <span>Given user calls "/userz" endpoint</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setHeaderTo(java.lang.String,java.lang.String)">
+                <span>And set header "Content-Type" to "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.setRequestBodyFromFileUsingPojo(java.lang.String)">
+                <span>And set request body from file "create-user.json" using pojo</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiRequestSteps.userMakesPostRequest()">
+                <span>When user makes post request</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="com.automation.steps.ApiResponseSteps.verifyStatusCodeIs(int)">
+                <span>Then verify status code is 400</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>10</span>
+<span class='badge log badge-danger'>2</span>
+</span>
+<p class="name">@api</p>
+<p class="duration text-sm">12 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@api</h4>
+<span status="pass" class='badge log pass-bg'>10 passed</span>
+<span status="fail" class='badge log badge-danger'>2 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>16:57:40 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>verify user can perform end to end operations</a>
+<div class="">
+<span class="badge badge-default">Verify user can perform end to end operations.verify user can perform end to end operations</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>16:57:45 pm</td>
+<td>
+<a href="#" class="linked" test-id='26' id='27'>verify user cannot perform create operations using invalid data</a>
+<div class="">
+<span class="badge badge-default">Negative api scenarios.verify user cannot perform create operations using invalid data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>16:57:45 pm</td>
+<td>
+<a href="#" class="linked" test-id='26' id='34'>verify user cannot perform create operations without body</a>
+<div class="">
+<span class="badge badge-default">Negative api scenarios.verify user cannot perform create operations without body</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>16:57:46 pm</td>
+<td>
+<a href="#" class="linked" test-id='40' id='41'>verify user can perform create operations</a>
+<div class="">
+<span class="badge badge-default">Verify user can perform CRUD operations.verify user can perform create operations</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>16:57:46 pm</td>
+<td>
+<a href="#" class="linked" test-id='40' id='50'>verify user can perform update operations</a>
+<div class="">
+<span class="badge badge-default">Verify user can perform CRUD operations.verify user can perform update operations</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>16:57:48 pm</td>
+<td>
+<a href="#" class="linked" test-id='40' id='64'>verify user can perform get operations</a>
+<div class="">
+<span class="badge badge-default">Verify user can perform CRUD operations.verify user can perform get operations</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>16:57:49 pm</td>
+<td>
+<a href="#" class="linked" test-id='40' id='71'>Verify if the custom field is added correctly</a>
+<div class="">
+<span class="badge badge-default">Verify user can perform CRUD operations.Verify if the custom field is added correctly</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>16:57:49 pm</td>
+<td>
+<a href="#" class="linked" test-id='40' id='79'>Verify if the custom field is added correctly</a>
+<div class="">
+<span class="badge badge-default">Verify user can perform CRUD operations.Verify if the custom field is added correctly</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>16:57:50 pm</td>
+<td>
+<a href="#" class="linked" test-id='40' id='87'>verify user can perform delete operation and verify it is deleted</a>
+<div class="">
+<span class="badge badge-default">Verify user can perform CRUD operations.verify user can perform delete operation and verify it is deleted</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>16:57:51 pm</td>
+<td>
+<a href="#" class="linked" test-id='40' id='103'>verify user cannot perform get operations using invalid id</a>
+<div class="">
+<span class="badge badge-default">Verify user can perform CRUD operations.verify user cannot perform get operations using invalid id</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>16:57:51 pm</td>
+<td>
+<a href="#" class="linked" test-id='40' id='109'>verify user cannot perform Invalid HTTP Methods</a>
+<div class="">
+<span class="badge badge-default">Verify user can perform CRUD operations.verify user cannot perform Invalid HTTP Methods</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>16:57:52 pm</td>
+<td>
+<a href="#" class="linked" test-id='40' id='116'>verify user cannot access invalid endpoints</a>
+<div class="">
+<span class="badge badge-default">Verify user can perform CRUD operations.verify user cannot access invalid endpoints</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>2</span>
+</span>
+<p class="name">java.lang.AssertionError</p>
+<p class="duration text-sm">2 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>java.lang.AssertionError</h4>
+<span status="fail" class='badge log badge-danger'>2 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>16:57:45 pm</td>
+<td>
+<a href="#" class="linked" test-id='26' id='33'>Then verify status code is not 201</a>
+<div class="">
+<span class="badge badge-default">Negative api scenarios.verify user cannot perform create operations using invalid data.Then verify status code is not 201</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>16:57:46 pm</td>
+<td>
+<a href="#" class="linked" test-id='26' id='39'>Then verify status code is not 201</a>
+<div class="">
+<span class="badge badge-default">Negative api scenarios.verify user cannot perform create operations without body.Then verify status code is not 201</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>

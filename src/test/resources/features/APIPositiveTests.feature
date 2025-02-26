@@ -44,8 +44,8 @@ Feature: Verify user can perform CRUD operations
 
     Examples:
       | username |
-      | 123      |
-      | 567      |
+      | joe      |
+      | saravan  |
 
   @api
   Scenario: verify user can perform delete operation and verify it is deleted
@@ -75,7 +75,7 @@ Feature: Verify user can perform CRUD operations
   Scenario: verify user cannot perform Invalid HTTP Methods
     Given user calls "/users/1" endpoint
     And set header "Content-Type" to "application/json"
-    And user set invalid request body from file "create-user.json"
+    And set request body from file "create-user.json" using pojo
     When user makes post request
     Then verify status code is 400
 
@@ -83,6 +83,6 @@ Feature: Verify user can perform CRUD operations
   Scenario: verify user cannot access invalid endpoints
     Given user calls "/userz" endpoint
     And set header "Content-Type" to "application/json"
-    And user set invalid request body from file "create-user.json"
+    And set request body from file "create-user.json" using pojo
     When user makes post request
     Then verify status code is 400

@@ -85,4 +85,9 @@ public class ApiRequestSteps {
     public void userSetInvalidRequestBodyFromFile(String filename) throws FileNotFoundException {
         RestAssuredUtils.setRequestBody(filename);
     }
+
+    @And("user set request body from file {string}")
+    public void userSetRequestBodyFromFile(String filename) throws FileNotFoundException {
+        RestAssuredUtils.setRequestBody(filename);
+    }
 }
