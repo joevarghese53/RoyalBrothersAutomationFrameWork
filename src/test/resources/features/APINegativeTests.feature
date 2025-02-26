@@ -4,7 +4,7 @@ Feature: Negative api scenarios
   Scenario: verify user cannot perform create operations using invalid data
     Given user calls "/users" endpoint
     And set header "Content-Type" to "application/json"
-    And user set request body from file "create-user.json" setting "salary" value "4324324"
+    And user set invalid request body from file "invalid-user.json"
     When user makes post request
     Then verify status code is not 201
 
