@@ -17,9 +17,9 @@ Feature: Profile and Account Management
     When user clicks on view profile button
     Then verify the profile page is displayed
     When user clicks on the edit icon of email section
-    And user enters the email address "email.address" and saves it
+    And user enters the email address "email.updated.address" and saves it
     Then verify the success message is displayed
-    And verify the email box contains the updated mail address "email.address"
+    And verify the email box contains the updated mail address "email.updated.address"
 
   @android
   Scenario: Verify user can successfully edit the email in mobile app
@@ -36,4 +36,4 @@ Feature: Profile and Account Management
     When user clicks on the edit icon of email section
     And user enters the email address "email.updated.address" and saves it
     Then verify the success message is displayed
-    And verify the email box contains the updated mail address "email.address"
+    And verify the email box contains the updated mail address "email.updated.address"

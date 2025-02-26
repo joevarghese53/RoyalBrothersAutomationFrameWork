@@ -66,9 +66,9 @@ public class WebSelectedProductPage extends BasePage implements SelectedProductP
         System.out.println(firstProdPrice.getText());
         ConfigReader.setConfigValue("first.prod.name",firstProdName.getText());
         ConfigReader.setConfigValue("first.prod.price", String.valueOf(Float.parseFloat(firstProdPrice.getText().trim().replace("Rs.",""))));
-        WebElement chooseOpt=driver.findElement(By.xpath("(//quick-view-button)[1]"));
-        actions.moveToElement(firstProdName).build().perform();
-        firstProdName.click();
+//        WebElement chooseOpt=driver.findElement(By.xpath("(//quick-view-button)[1]"));
+        actions.moveToElement(firstProdName).pause(2000).click().build().perform();
+//        firstProdName.click();
     }
 
     @Override
@@ -76,9 +76,9 @@ public class WebSelectedProductPage extends BasePage implements SelectedProductP
         System.out.println(secondProdPrice.getText());
         ConfigReader.setConfigValue("second.prod.name",secondProdName.getText());
         ConfigReader.setConfigValue("second.prod.price", String.valueOf(Float.parseFloat(secondProdPrice.getText().trim().replace("Rs.",""))));
-        WebElement chooseOpt=driver.findElement(By.xpath("(//quick-view-button)[2]"));
-        actions.moveToElement(secondProdName).build().perform();
-        secondProdName.click();
+//        WebElement chooseOpt=driver.findElement(By.xpath("(//quick-view-button)[2]"));
+        actions.moveToElement(secondProdName).pause(1000).click().build().perform();
+//        secondProdName.click();
     }
 
 

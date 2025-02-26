@@ -24,10 +24,15 @@ Feature: Verify user can perform CRUD operations
     Then verify status code is 200
 
   @api
-  Scenario:Verify if the name and salary created
+  Scenario Outline:Verify if the name and salary created
     Given user calls "/users" endpoint
     And set header "Content-Type" to "application/json"
-    And set request body from file "create-user.json" using pojo
+    And user set request body from file "create-user.json" using pojo with "name" value "<username>"
     When user makes post request
     Then verify status code is 201
-    And verify response body has a field "name" as "Joe Varghese"
+    And verify response body has a field "name" as "<username>"
+
+    Examples:
+    |username|
+    |qwer    |
+    |asdf    |
