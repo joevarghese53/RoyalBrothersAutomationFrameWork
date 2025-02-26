@@ -7,9 +7,13 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
-public class CreateUserResponsePojo extends  CreateUserRequestPojo{
+@EqualsAndHashCode
+@ToString
+public class CreateUserResponsePojo{
     long createdAt;
+    String name;
+    String email;
+    double salary;
+    int age;
     String id;
 }

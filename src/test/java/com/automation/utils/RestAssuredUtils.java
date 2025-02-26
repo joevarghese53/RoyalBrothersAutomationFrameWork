@@ -13,9 +13,7 @@ public class RestAssuredUtils {
     static String endPoint;
     static Response response;
     public static void setEndpoint(String endpoint){
-        if (endpoint.contains("@id")){
-            endpoint = endpoint.replace("@id",ConfigReader.getConfigValue("user.id"));
-        }
+        clear();
         RestAssuredUtils.endPoint = endpoint;
     }
 
@@ -74,5 +72,9 @@ public class RestAssuredUtils {
 
     public static void clear(){
         requestSpecification = RestAssured.given();
+    }
+
+    public static void setPathParam(String key, String value){
+        requestSpecification.pathParam(key,ConfigReader.getConfigValue(value));
     }
 }

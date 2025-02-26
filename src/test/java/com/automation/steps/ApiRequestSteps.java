@@ -2,6 +2,7 @@ package com.automation.steps;
 
 import com.automation.pojo.CreateUserRequestPojo;
 import com.automation.utils.ConfigReader;
+import com.automation.utils.Constants;
 import com.automation.utils.RestAssuredUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.en.And;
@@ -61,13 +62,27 @@ public class ApiRequestSteps {
         CreateUserRequestPojo requestPojo = objectMapper.readValue(body, CreateUserRequestPojo.class);
         Field field=CreateUserRequestPojo.class.getDeclaredField(fieldname);
         field.setAccessible(true);
-        field.set(requestPojo,value);
+        if (Constants.createBookingIntFields.contains(fieldname)) {
+            field.set(requestPojo, Integer.valueOf(value));
+        } else {
+            field.set(requestPojo, value);
+        }
         RestAssuredUtils.setRequestBody(requestPojo);
         ConfigReader.setObject("request.pojo", requestPojo);
     }
 
     @And("user set request body from file {string} setting {string} value {string}")
     public void userSetRequestBodyFromFileSettingValue(String filename, String fieldname, String value) throws Exception {
+        RestAssuredUtils.setRequestBody(filename);
+    }
+
+    @And("sets path param for {string} as {string}")
+    public void setsPathParamForAs(String key, String value) {
+        RestAssuredUtils.setPathParam(key,value);
+    }
+
+    @And("user set invalid request body from file {string}")
+    public void userSetInvalidRequestBodyFromFile(String filename) throws FileNotFoundException {
         RestAssuredUtils.setRequestBody(filename);
     }
 }
