@@ -44,6 +44,7 @@ public class AndroidProfilePage extends BasePage implements ProfilePage {
 
     @Override
     public boolean isProfilePageDisplayed() {
+        pause(3);
         return isDisplayed(emailTextBox);
     }
 
@@ -67,6 +68,7 @@ public class AndroidProfilePage extends BasePage implements ProfilePage {
 
     @Override
     public boolean isEmailUpdated(String email) {
+        pause(3);
         return emailTextBox.getText().equals(ConfigReader.getConfigValue(email));
     }
 
