@@ -9,8 +9,8 @@ Feature: Negative api scenarios
     Then verify status code is not 201
 
   @api
-  Scenario: verify user cannot perform ger operations using invalid id
-    Given user calls "/users/abcd" endpoint
+  Scenario: verify user cannot perform create operations without body
+    Given user calls "/users" endpoint
     And set header "Content-Type" to "application/json"
-    When user makes get request
-    Then verify status code is 404
+    When user makes post request
+    Then verify status code is not 201
