@@ -36,7 +36,3 @@ build/
 
 ### Mac OS ###
 .DS_Store
-CucumberReport
-Report_Android
-Report_Api
-Report_Web
