@@ -16,9 +16,6 @@ public class ApiResponseSteps {
         Response response = RestAssuredUtils.getResponse();
         CreateUserRequestPojo requestPojo = (CreateUserRequestPojo) ConfigReader.getObject("request_pojo");
         CreateUserResponsePojo response_pojo = response.as(CreateUserResponsePojo.class);
-        System.out.println(response_pojo);
-        System.out.println(requestPojo);
-//        Assert.assertTrue(response_pojo.equals(requestPojo));
         Assert.assertEquals(requestPojo.getName(), response_pojo.getName());
         Assert.assertEquals(requestPojo.getEmail(), response_pojo.getEmail());
         Assert.assertEquals(requestPojo.getAge(), response_pojo.getAge());

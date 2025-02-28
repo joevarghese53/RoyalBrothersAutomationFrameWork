@@ -7,10 +7,7 @@ import com.automation.utils.RestAssuredUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
-
 import java.io.FileNotFoundException;
 import java.lang.reflect.Field;
 
@@ -18,6 +15,11 @@ public class ApiRequestSteps {
     @Given("user calls {string} endpoint")
     public void userCallsEndpoint(String endPoint) {
         RestAssuredUtils.setEndpoint(endPoint);
+    }
+
+    @And("sets path param for {string} as {string}")
+    public void setsPathParamForAs(String key, String value) {
+        RestAssuredUtils.setPathParam(key, value);
     }
 
     @And("set header {string} to {string}")
@@ -32,6 +34,27 @@ public class ApiRequestSteps {
         CreateUserRequestPojo request_pojo = objectMapper.readValue(content, CreateUserRequestPojo.class);
         RestAssuredUtils.setRequestBody(request_pojo);
         ConfigReader.setObject("request_pojo", request_pojo);
+    }
+
+    @And("user set request body from file {string} using pojo with {string} value {string}")
+    public void userSetRequestBodyFromFileUsingPojoWithValue(String fileName, String fieldName, String value) throws Exception {
+        String body = RestAssuredUtils.getJsonDataFromFile(fileName);
+        ObjectMapper objectMapper = new ObjectMapper();
+        CreateUserRequestPojo requestPojo = objectMapper.readValue(body, CreateUserRequestPojo.class);
+        Field field = CreateUserRequestPojo.class.getDeclaredField(fieldName);
+        field.setAccessible(true);
+        if (Constants.createBookingIntFields.contains(fieldName)) {
+            field.set(requestPojo, Integer.valueOf(value));
+        } else {
+            field.set(requestPojo, value);
+        }
+        RestAssuredUtils.setRequestBody(requestPojo);
+        ConfigReader.setObject("request.pojo", requestPojo);
+    }
+
+    @And("user set request body from file {string}")
+    public void userSetRequestBodyFromFile(String filename) throws FileNotFoundException {
+        RestAssuredUtils.setRequestBody(filename);
     }
 
     @When("user makes post request")
@@ -53,41 +76,5 @@ public class ApiRequestSteps {
     @And("user makes delete request")
     public void userMakesDeleteRequest() {
         RestAssuredUtils.delete();
-    }
-
-    @And("user set request body from file {string} using pojo with {string} value {string}")
-    public void userSetRequestBodyFromFileUsingPojoWithValue(String filename, String fieldname, String value) throws Exception {
-        String body = RestAssuredUtils.getJsonDataFromFile(filename);
-        ObjectMapper objectMapper = new ObjectMapper();
-        CreateUserRequestPojo requestPojo = objectMapper.readValue(body, CreateUserRequestPojo.class);
-        Field field=CreateUserRequestPojo.class.getDeclaredField(fieldname);
-        field.setAccessible(true);
-        if (Constants.createBookingIntFields.contains(fieldname)) {
-            field.set(requestPojo, Integer.valueOf(value));
-        } else {
-            field.set(requestPojo, value);
-        }
-        RestAssuredUtils.setRequestBody(requestPojo);
-        ConfigReader.setObject("request.pojo", requestPojo);
-    }
-
-    @And("user set request body from file {string} setting {string} value {string}")
-    public void userSetRequestBodyFromFileSettingValue(String filename, String fieldname, String value) throws Exception {
-        RestAssuredUtils.setRequestBody(filename);
-    }
-
-    @And("sets path param for {string} as {string}")
-    public void setsPathParamForAs(String key, String value) {
-        RestAssuredUtils.setPathParam(key,value);
-    }
-
-    @And("user set invalid request body from file {string}")
-    public void userSetInvalidRequestBodyFromFile(String filename) throws FileNotFoundException {
-        RestAssuredUtils.setRequestBody(filename);
-    }
-
-    @And("user set request body from file {string}")
-    public void userSetRequestBodyFromFile(String filename) throws FileNotFoundException {
-        RestAssuredUtils.setRequestBody(filename);
     }
 }
